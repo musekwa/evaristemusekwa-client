@@ -1,0 +1,75 @@
+.navbar-container {
+  background-color: #efffff;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
+  height: auto;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  color: #0d5b49 !important;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.brand-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  margin-right: 15px;
+  border-radius: 50%;
+  margin-top: -10px;
+  width: 100px;
+  height: 105px;
+}
+
+.logo:hover {
+  border: 3px solid #0d5b49;
+}
+
+#blog-owner-name {
+  font-size: 30px;
+  font-weight: bolder;
+  color: #0d5b49;
+}
+
+#blog-owner-name:hover, .link:hover {
+  border-bottom: 3px solid #0d5b49;
+}
+
+#blog-owner-profession {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #0d5b49;
+}
+
+.brand-owner {
+}
+
+.navbar-collapsed {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  margin-right: 20px;
+  color: #0d5b49 !important;
+}
+
+@media (max-width: 690px) {
+  .navbar-container {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  #blog-owner-name {
+  font-size: 18px;
+
+}
+
+#blog-owner-profession {
+  font-size: 14px;
+}
+}

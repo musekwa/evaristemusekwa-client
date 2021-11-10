@@ -25,7 +25,7 @@ function AboutMe() {
             I'm good at HTML, CSS, JavaScript, including React.js, Node.js and
             Express.js. Sometimes, I build backend applications with either Java
             and Spring Boot or Python and Flask to serve either structured (from MySQL or PostgreSQL) 
-            or unstructured (MongoDB) data. 
+            or unstructured (from MongoDB) data. 
             <br /> <br />
             Besides Portuguese and English, I fluently speak French. I strive to
             be a humble team player.

@@ -6,6 +6,10 @@
   color: #0d5b49 !important;
   font-size: 26px;
   margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 .brand-container {
@@ -33,7 +37,8 @@
   color: #0d5b49;
 }
 
-#blog-owner-name:hover, .link:hover {
+#blog-owner-name:hover,
+.link:hover {
   border-bottom: 3px solid #0d5b49;
 }
 
@@ -62,18 +67,13 @@
   .navbar-container {
     font-size: 14px;
     margin-bottom: 15px;
-    position: sticky;
-    top: 0;
-    right: 0;
-    left: 0;
   }
 
   #blog-owner-name {
-  font-size: 18px;
+    font-size: 18px;
+  }
 
-}
-
-#blog-owner-profession {
-  font-size: 14px;
-}
+  #blog-owner-profession {
+    font-size: 14px;
+  }
 }

@@ -62,7 +62,7 @@
   .navbar-container {
     font-size: 14px;
     margin-bottom: 15px;
-    position: fixed;
+    position: absolute;
     margin-top: 0;
   }
 

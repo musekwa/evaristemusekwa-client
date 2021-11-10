@@ -62,9 +62,10 @@
   .navbar-container {
     font-size: 14px;
     margin-bottom: 15px;
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
+    left: 0;
   }
 
   #blog-owner-name {

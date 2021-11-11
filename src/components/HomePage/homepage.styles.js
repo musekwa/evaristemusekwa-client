@@ -2,12 +2,19 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const styles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
     //  backgroundColor: theme.palette.background.paper,
-    backgroundColor: "#efffff",
+    //backgroundColor: "#efffff",
+    width: "45%",
+    [theme.breakpoints.down("md")]: {
+      width: "60%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   tabsRoot: {
     textColor: "#0d5b49",
+    backgroundColor: "#efffff",
     [theme.breakpoints.down("md")]: {},
   },
   tabsIndicator: {
@@ -45,13 +52,13 @@ const styles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginRight: theme.spacing.unit * 0,
       marginLeft: theme.spacing.unit * 0,
-      fontSize: theme.typography.h6,
-      fontWeight: theme.typography.fontWeightLight,
+ //     fontSize: theme.typography.h6,
+ //     fontWeight: theme.typography.fontWeightLight,
     },
     [theme.breakpoints.down("md")]: {
       marginRight: theme.spacing.unit * 0,
       marginLeft: theme.spacing.unit * 0,
-      fontSize: theme.typography.h6,
+ //     fontSize: theme.typography.h6,
     },
   },
   tabSelected: {},

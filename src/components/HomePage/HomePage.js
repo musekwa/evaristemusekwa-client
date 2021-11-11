@@ -1,91 +1,153 @@
 import React, { useState, useEffect, Children } from "react";
 // import { Row, Col, Card, Nav } from "react-bootstrap";
-import { Container, Tabs, Tab, Paper, Divider } from "@material-ui/core";
+import {
+  Container,
+  Tabs,
+  Tab,
+  Paper,
+  Divider,
+  Card,
+  Grid,
+} from "@material-ui/core";
 import "./homepage.css";
 import styles from "./homepage.styles";
 import PostCard from "../Posts/PostCard";
+import { Box } from "@mui/system";
 
 // test postcards
-const postcards = [
-  {
-    title: "Lodash Fundamentals",
-    category: "javascript",
-    description: `Lodash has come to ease the programmer's life`,
-    images: [
-      {
-       
-      }
-    ]
-  }
-];
+const postcards = {
+  javascript: [
+    {
+      title: "JavaScript Lodash Fundamentals",
+      image: "/js1.jpg",
+    },
+    {
+      title: "JavaScript Lodash Advanced Concepts",
+      image: "/js2.jpg",
+    },
+    {
+      title: "JavaScript Lodash Examples",
+      image: "/js3.jpg",
+    },
+  ],
+  algorithms: [
+    {
+      title: "Algorithms Lodash Fundamentals",
+      image: "/js1.jpg",
+    },
+    {
+      title: "Algorithms Lodash Advanced Concepts",
+      image: "/js2.jpg",
+    },
+    {
+      title: "Algorithms Lodash Examples",
+      image: "/js3.jpg",
+    },
+  ],
+  uncategorized: [
+    {
+      title: "Uncategorized Lodash Fundamentals",
+      image: "/js1.jpg",
+    },
+    {
+      title: "Uncategorized Lodash Advanced Concepts",
+      image: "/js2.jpg",
+    },
+    {
+      title: "Uncategorized Lodash Examples",
+      image: "/js3.jpg",
+    },
+  ],
+};
 
-const TabPanel = (props)=>{
-  const { children, value, index } = props;
-  return (
-    <div>
-      <h4>{value === index && children }</h4>
-    </div>
-  )
-}
+const TabPanel = (props) => {
+  return <div>{props.children}</div>;
+};
 
 // Home page component
 function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
   const [value, setValue] = useState(0);
-  const [postcards, setPostCards] = useState([]);
+  const [category, setCategory] = useState([]);
   const classes = styles();
 
   const handleChange = (event, value) => {
     setValue(value);
+    const category =
+      value === 0
+        ? postcards["javascript"]
+        : value === 1
+        ? postcards["algorithms"]
+        : postcards["uncategorized"];
+    setCategory(category);
   };
 
   // continuously check the window width resizing
   useEffect(() => {
     let flag = window.innerWidth <= 690;
     setIsMobile(flag);
-  }, [isMobile]);
 
-  console.log("value ", value);
+    const category =
+      value === 0
+        ? postcards["javascript"]
+        : value === 1
+        ? postcards["algorithms"]
+        : postcards["uncategorized"];
+    setCategory(category);
+  }, [isMobile, value]);
+
   return (
-    <Container>
-      <Paper className={classes.root} centered>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          variant={!isMobile ? "standard" : "fullWidth"}
-          classes={{
-            root: classes.tabsRoot,
-            indicator: classes.tabsIndicator,
-          }}
-        >
-          <Tab
-            variant="fixed"
-            label="JavaScript"
-            classes={{ root: classes.tabRoot }}
-          />
-          <Tab
-            variant="fixed"
-            label={!isMobile ? "Algorithms & Data Structures" : "Algorithms"}
-            classes={{ root: classes.tabRoot }}
-          />
-          <Tab
-            variant="fixed"
-            label="Uncategorized"
-            classes={{ root: classes.tabRoot }}
-          />
-        </Tabs>
-        <Divider />
-        <TabPanel value={value} index={0}>
-          JavaScript
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          Algorithms
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          Uncategorized
-        </TabPanel>
-      </Paper>
-    </Container>
+    <Grid
+      container
+      xs={12}
+      direction="column"
+      alignItems="center"
+      justify="center"
+    >
+      <Grid className={classes.root} centered item>
+        <Paper>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            variant={!isMobile ? "standard" : "fullWidth"}
+            classes={{
+              root: classes.tabsRoot,
+              indicator: classes.tabsIndicator,
+            }}
+          >
+            <Tab
+              variant="fixed"
+              label="JavaScript"
+              classes={{ root: classes.tabRoot }}
+            />
+            <Tab
+              variant="fixed"
+              label={!isMobile ? "Algorithms & Data Structures" : "Algorithms"}
+              classes={{ root: classes.tabRoot }}
+            />
+            <Tab
+              variant="fixed"
+              label="Uncategorized"
+              classes={{ root: classes.tabRoot }}
+            />
+          </Tabs>
+        </Paper>
+      </Grid>
+      <Divider />
+      <Grid className={classes.root} centered item>
+        <Paper>
+          <TabPanel category={category}>
+            {category.map((post) => {
+              return (
+                <Box height={100}>
+                  <Box>{post.title}</Box>
+                </Box>
+              );
+            })}
+          </TabPanel>
+        </Paper>
+      </Grid>
+    </Grid>
   );
 }
 

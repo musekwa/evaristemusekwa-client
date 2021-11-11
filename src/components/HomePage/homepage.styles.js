@@ -9,6 +9,9 @@ const styles = makeStyles((theme) => ({
       width: "60%",
     },
     [theme.breakpoints.down("sm")]: {
+      width: "80%",
+    },
+    [theme.breakpoints.down("xs")]: {
       width: "100%",
     },
   },
@@ -22,7 +25,7 @@ const styles = makeStyles((theme) => ({
   },
   tabRoot: {
     textTransform: "initial",
-    minWidth: 50,
+    minWidth: "25%",
     fontWeight: theme.typography.fontWeightMedium,
     marginRight: theme.spacing.unit * 4,
     fontFamily: [
@@ -52,13 +55,13 @@ const styles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginRight: theme.spacing.unit * 0,
       marginLeft: theme.spacing.unit * 0,
- //     fontSize: theme.typography.h6,
- //     fontWeight: theme.typography.fontWeightLight,
+      //     fontSize: theme.typography.h6,
+      //     fontWeight: theme.typography.fontWeightLight,
     },
     [theme.breakpoints.down("md")]: {
       marginRight: theme.spacing.unit * 0,
       marginLeft: theme.spacing.unit * 0,
- //     fontSize: theme.typography.h6,
+      //     fontSize: theme.typography.h6,
     },
   },
   tabSelected: {},

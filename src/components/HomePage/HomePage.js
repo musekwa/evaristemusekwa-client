@@ -6,13 +6,20 @@ import {
   Tab,
   Paper,
   Divider,
-  Card,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
   Grid,
+  CardContent,
+  CardMedia,
+  Typography,
+  Avatar,
 } from "@material-ui/core";
 import "./homepage.css";
 import styles from "./homepage.styles";
 import PostCard from "../Posts/PostCard";
-import { Box } from "@mui/system";
+import "./homepage.css";
 
 // test postcards
 const postcards = {
@@ -137,13 +144,21 @@ function HomePage() {
       <Grid className={classes.root} centered item>
         <Paper>
           <TabPanel category={category}>
-            {category.map((post) => {
-              return (
-                <Box height={100}>
-                  <Box>{post.title}</Box>
-                </Box>
-              );
-            })}
+            <List >
+              {category.map((post) => {
+                return (
+                  <ListItem className={classes.primary}>
+                    <img src={`${post.image}`} alt="" className="post-image" />
+                    <ListItemText primary={`${post.title}`} inset />
+                  </ListItem>
+
+                  // <div>
+                  //   <img src={post.image} alt="" className="post-image" />
+                  //   <Typography variant="h6">{post.title}</Typography>
+                  // </div>
+                );
+              })}
+            </List>
           </TabPanel>
         </Paper>
       </Grid>

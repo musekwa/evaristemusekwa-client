@@ -2,36 +2,13 @@
   border: 1px solid black;
 }
 
-.main {
- 
+.post-image {
+ width: 25%;
+ margin-left: 5;
+
 }
 
 
-
-.most-popular-posts {
-  color: #0d5b49 !important;
-  font-family: "Arbutus Slab", serif;
-}
-
-
-.most-popular-posts-card {
-  width: 100%;
-}
-
-.most-popular-posts-card-header {
-    background-color: #000;
-    
-}
-
-.sidebar-right {
-  border: 1px solid black;
-}
-
-.sidebar-right {
-}
-
-.sidebar-left {
-}
 
 @media screen and (max-width: 830px) {
   .sidebar-left,

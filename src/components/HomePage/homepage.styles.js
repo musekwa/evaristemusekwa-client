@@ -64,6 +64,10 @@ const styles = makeStyles((theme) => ({
       //     fontSize: theme.typography.h6,
     },
   },
+  primary: {
+    color: "#0d5b49",
+    marginLeft: 5,
+  },
   tabSelected: {},
   typography: {
     //   padding: theme.spacing.unit * 3,

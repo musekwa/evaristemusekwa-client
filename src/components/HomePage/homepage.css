@@ -1,24 +1,6 @@
-.sidebar-left {
-  border: 1px solid black;
-}
 
 .post-image {
  width: 25%;
  margin-left: 5;
 
-}
-
-
-
-@media screen and (max-width: 830px) {
-  .sidebar-left,
-  .sidebar-right {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 690px) {
-  .most-popular-posts {
-    font-size: 14px;
-  }
 }

@@ -27,42 +27,51 @@ const postcards = {
     {
       title: "JavaScript Lodash Fundamentals",
       image: "/js1.jpg",
+      created: "Jan 21, 2021",
     },
     {
       title: "JavaScript Lodash Advanced Concepts",
       image: "/js2.jpg",
+      created: "Jan 21, 2021",
     },
     {
       title: "JavaScript Lodash Examples",
       image: "/js3.jpg",
+      created: "Jan 21, 2021",
     },
   ],
   algorithms: [
     {
       title: "Algorithms Lodash Fundamentals",
       image: "/js1.jpg",
+      created: "Jan 21, 2021",
     },
     {
       title: "Algorithms Lodash Advanced Concepts",
       image: "/js2.jpg",
+      created: "Jan 21, 2021",
     },
     {
       title: "Algorithms Lodash Examples",
       image: "/js3.jpg",
+      created: "Jan 21, 2021",
     },
   ],
   uncategorized: [
     {
       title: "Uncategorized Lodash Fundamentals",
       image: "/js1.jpg",
+      created: "Jan 21, 2021",
     },
     {
       title: "Uncategorized Lodash Advanced Concepts",
       image: "/js2.jpg",
+      created: "Jan 21, 2021",
     },
     {
       title: "Uncategorized Lodash Examples",
       image: "/js3.jpg",
+      created: "Jan 21, 2021",
     },
   ],
 };
@@ -147,10 +156,17 @@ function HomePage() {
             <List >
               {category.map((post) => {
                 return (
-                  <ListItem className={classes.primary}>
-                    <img src={`${post.image}`} alt="" className="post-image" />
-                    <ListItemText primary={`${post.title}`} inset />
-                  </ListItem>
+                  <>
+                    <ListItem className={classes.primary}>
+                      <img
+                        src={`${post.image}`}
+                        alt=""
+                        className="post-image"
+                      />
+                      <ListItemText primary={`${post.title}`} secondary="Jan 21, 2021" inset />
+                    </ListItem>
+                    <Divider component="li" />
+                  </>
 
                   // <div>
                   //   <img src={post.image} alt="" className="post-image" />

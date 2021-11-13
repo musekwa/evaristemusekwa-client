@@ -73,7 +73,7 @@ const styles = makeStyles((theme) => ({
     //   padding: theme.spacing.unit * 3,
   },
 
-  chip: {
+  chips: {
     display: "flex",
     color: "#0d5b49",
     flexWrap: "wrap",

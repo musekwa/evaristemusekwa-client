@@ -20,6 +20,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import { Link } from "react-router-dom";
 import "./homepage.css";
 import styles from "./homepage.styles";
 import PostCard from "../Posts/PostCard";
@@ -224,19 +225,19 @@ function HomePage() {
           <Paper square elevation={2}>
             <Container>
               <div style={{ paddingTop: 10, paddingBottom: 10 }}>
-                <a href="#href">
+                <Link to={"#"}>
                   <img alt="post" src="/js1.jpg" className="all-post-image" />
-                </a>
-                <a className="anchor" href="#href" >
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  style={{ color: "#0d5b49", fontWeight: "bolder" }}
-                >
-                  Lizard
-                </Typography>
-                </a>
-                <div className={classes.chip}>
+                </Link>
+                <Link to={"/about-me"}>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    style={{ color: "#0d5b49", fontWeight: "bolder" }}
+                  >
+                    Lizard
+                  </Typography>
+                </Link>
+                <div className={classes.chips}>
                   <Chip
                     size="large"
                     label="javascript"
@@ -244,6 +245,7 @@ function HomePage() {
                     href="#chip"
                     clickable
                     style={{ color: "inherit" }}
+                    className="chipItem"
                   />
 
                   <Chip
@@ -253,16 +255,13 @@ function HomePage() {
                     href="#chip"
                     clickable
                     style={{ color: "inherit" }}
+                    className="chipItem"
                   />
                 </div>
                 <Typography variant="body1" color="textSecondary" component="p">
                   Lizards are a widespread group of squamate reptiles, with over
                   6,000 species, ranging across all continents except Antarctica
                 </Typography>
-                {/* <Button size="small" color="" variant="outlined" disableRipple>
-                  Learn More
-                  <ArrowRightAltIcon />
-                </Button> */}
                 <BootstrapButton>
                   Continue reading
                   <ArrowRightAltIcon />
@@ -301,28 +300,19 @@ const BootstrapButton = withStyles({
     ].join(","),
     "&:hover": {
       //   backgroundColor: "#C4C4C4",
-      //    borderColor: "#0062cc",
+      borderColor: "#0d5b49",
       boxShadow: "none",
     },
     "&:active": {
       boxShadow: "none",
       //   backgroundColor: "#C4C4C4",
-      //     borderColor: "#005cbf",
+      borderColor: "#0d5b49",
     },
     "&:focus": {
-      boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+ //     boxShadow: "0 0 0 0.2rem rgba(30, 130, 76, 1)",
     },
   },
 })(Button);
 
-// // const ColorButton = withStyles((theme) => ({
-// //   root: {
-// //     color: theme.palette.getContrastText(purple[500]),
-// //     backgroundColor: purple[500],
-// //     "&:hover": {
-// //       backgroundColor: purple[700],
-// //     },
-// //   },
-// }))(Button);
 
 export default HomePage;

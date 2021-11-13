@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Container, Grid, Paper, Typography } from "@material-ui/core";
 import styles from "./aboutme.styles";
 import './aboutme.css'
+import { Link } from "react-router-dom";
 
 function AboutMe() {
   const classes = styles();
@@ -15,8 +16,8 @@ function AboutMe() {
           <Typography component="p" align="justify">
             <br />
             My name is Evariste Musekwa Iguna. I’m a Web Technologist with 4+
-            years of experience, having a Master’s Degree in Software
-            Engineering and Web Technologies.
+            years of experience, looking forwards to obtaining a Master’s Degree in Software
+            Engineering and Web Technologies soon.
             <br /> <br />
             My passion is web applications development: programming, design (UI
             and UX), good application architecture, database design and
@@ -31,9 +32,9 @@ function AboutMe() {
             be a humble team player.
             <br /> <br />
             On my blog{" "}
-            <a style={{ color: "#0d5b49" }} href="#">
+            <Link to="/" style={{ color: "#0d5b49" }} href="#">
               https://evaristemusekwa.com
-            </a>{" "}
+            </Link>{" "}
             , I publish weekly posts about countless computer science topics,
             mainly about JavaScript, Algorithms and Data Structures. Writing
             helps me sharpen my written communication skills and stay in touch

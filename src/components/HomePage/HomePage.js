@@ -31,7 +31,7 @@ const mostPopularPost = {
   javascript: [
     {
       title: "JavaScript Lodash Fundamentals",
-      image: "/js1.jpg",
+      image: "/picture1.png",
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
@@ -39,7 +39,7 @@ const mostPopularPost = {
     },
     {
       title: "JavaScript Lodash Advanced Concepts",
-      image: "/js2.jpg",
+      image: "/picture1.png",
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
@@ -47,7 +47,7 @@ const mostPopularPost = {
     },
     {
       title: "JavaScript Lodash Examples",
-      image: "/js3.jpg",
+      image: "/picture1.png",
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
@@ -57,7 +57,7 @@ const mostPopularPost = {
   algorithms: [
     {
       title: "Algorithms Lodash Fundamentals",
-      image: "/js1.jpg",
+      image: "/picture1.png",
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
@@ -65,7 +65,7 @@ const mostPopularPost = {
     },
     {
       title: "Algorithms Lodash Advanced Concepts",
-      image: "/js2.jpg",
+      image: "/picture1.png",
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
@@ -73,7 +73,7 @@ const mostPopularPost = {
     },
     {
       title: "Algorithms Lodash Examples",
-      image: "/js3.jpg",
+      image: "/picture1.png",
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
@@ -83,7 +83,7 @@ const mostPopularPost = {
   uncategorized: [
     {
       title: "Uncategorized Lodash Fundamentals",
-      image: "/js1.jpg",
+      image: "/picture1.png",
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
@@ -91,7 +91,7 @@ const mostPopularPost = {
     },
     {
       title: "Uncategorized Lodash Advanced Concepts",
-      image: "/js2.jpg",
+      image: "/picture1.png",
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
@@ -99,7 +99,7 @@ const mostPopularPost = {
     },
     {
       title: "Uncategorized Lodash Examples",
-      image: "/js3.jpg",
+      image: "/picture1.png",
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
@@ -225,10 +225,82 @@ function HomePage() {
           <Paper square elevation={2}>
             <Container>
               <div style={{ paddingTop: 10, paddingBottom: 10 }}>
-                <Link to={"#"}>
-                  <img alt="post" src="/js1.jpg" className="all-post-image" />
+                <Link to="/">
+                  <img
+                    alt="post"
+                    src="/picture1.png"
+                    className="all-post-image"
+                  />
                 </Link>
-                <Link to={"/about-me"}>
+                <Link
+                  to={{
+                    pathname: "/",
+                    search: `?tilte=${"change this later"}`,
+                    hash: "#the-hash",
+                    state: { HomePage: true },
+                  }}
+                >
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    style={{ color: "#0d5b49", fontWeight: "bolder" }}
+                  >
+                    Lizard
+                  </Typography>
+                </Link>
+                <div className={classes.chips}>
+                  <Chip
+                    size="large"
+                    label="javascript"
+                    component="a"
+                    href="#chip"
+                    clickable
+                    style={{ color: "inherit" }}
+                    className="chipItem"
+                  />
+
+                  <Chip
+                    size="large"
+                    label="javascript"
+                    component="a"
+                    href="#chip"
+                    clickable
+                    style={{ color: "inherit" }}
+                    className="chipItem"
+                  />
+                </div>
+                <Typography variant="body1" color="textSecondary" component="p">
+                  Lizards are a widespread group of squamate reptiles, with over
+                  6,000 species, ranging across all continents except Antarctica
+                </Typography>
+                <BootstrapButton>
+                  Continue reading
+                  <ArrowRightAltIcon />
+                </BootstrapButton>
+              </div>
+            </Container>
+          </Paper>
+        </Grid>
+
+        <Grid className={classes.root} centered item>
+          <Paper square elevation={2}>
+            <Container>
+              <div style={{ paddingTop: 10, paddingBottom: 10 }}>
+                <Link to="/">
+                  <img
+                    alt="post"
+                    src="/picture1.png"
+                    className="all-post-image"
+                  />
+                </Link>
+                <Link
+                  to={{
+                    pathname: "/",
+                    search: `?tilte=${"change this later"}`,
+                    hash: "#the-hash",
+                    state: { HomePage: true },
+                  }}
+                >
                   <Typography
                     gutterBottom
                     variant="h5"

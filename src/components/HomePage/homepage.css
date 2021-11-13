@@ -1,8 +1,6 @@
-
 .most-popular-post-image {
- width: 25%;
- margin-left: 5;
-
+  width: 35%;
+  margin-left: 5;
 }
 
 .all-post-image {
@@ -17,4 +15,3 @@
   color: "#ffffff";
   text-decoration: underline;
 }
-

@@ -5,6 +5,7 @@ const styles = makeStyles((theme) => ({
     //  backgroundColor: theme.palette.background.paper,
     //backgroundColor: "#efffff",
     width: "45%",
+    color: "#0d5b49",
     [theme.breakpoints.down("md")]: {
       width: "60%",
     },
@@ -74,6 +75,7 @@ const styles = makeStyles((theme) => ({
 
   chip: {
     display: "flex",
+    color: "#0d5b49",
     flexWrap: "wrap",
     "& > *": {
       marginRight: theme.spacing(2),

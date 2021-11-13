@@ -8,3 +8,13 @@
 .all-post-image {
   margin-bottom: 15px;
 }
+
+.anchor {
+  text-decoration: none;
+}
+
+.anchor:hover {
+  color: "#ffffff";
+  text-decoration: underline;
+}
+

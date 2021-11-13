@@ -18,6 +18,7 @@ import {
   Button,
   Chip,
 } from "@material-ui/core";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import "./homepage.css";
 import styles from "./homepage.styles";
@@ -193,7 +194,7 @@ function HomePage() {
                 {category.map((post, index) => {
                   return (
                     <>
-                      <Button>
+                      <BootstrapButton>
                         <ListItem className={classes.primary}>
                           <img
                             src={`${post.image}`}
@@ -207,7 +208,7 @@ function HomePage() {
                             inset
                           />
                         </ListItem>
-                      </Button>
+                      </BootstrapButton>
                       {index < category.length - 1 && (
                         <Divider component="li" />
                       )}
@@ -223,36 +224,49 @@ function HomePage() {
           <Paper square elevation={2}>
             <Container>
               <div style={{ paddingTop: 10, paddingBottom: 10 }}>
-                <img alt="post" src="/js1.jpg" className="all-post-image" />
-
-                <Typography gutterBottom variant="h5" component="h2">
+                <a href="#href">
+                  <img alt="post" src="/js1.jpg" className="all-post-image" />
+                </a>
+                <a className="anchor" href="#href" >
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  style={{ color: "#0d5b49", fontWeight: "bolder" }}
+                >
                   Lizard
                 </Typography>
+                </a>
                 <div className={classes.chip}>
                   <Chip
-                    size="small"
+                    size="large"
                     label="javascript"
                     component="a"
                     href="#chip"
                     clickable
+                    style={{ color: "inherit" }}
                   />
 
                   <Chip
-                    size="small"
+                    size="large"
                     label="javascript"
                     component="a"
                     href="#chip"
                     clickable
+                    style={{ color: "inherit" }}
                   />
                 </div>
                 <Typography variant="body1" color="textSecondary" component="p">
                   Lizards are a widespread group of squamate reptiles, with over
                   6,000 species, ranging across all continents except Antarctica
                 </Typography>
-                <Button size="small" color="" variant="outlined">
+                {/* <Button size="small" color="" variant="outlined" disableRipple>
                   Learn More
                   <ArrowRightAltIcon />
-                </Button>
+                </Button> */}
+                <BootstrapButton>
+                  Continue reading
+                  <ArrowRightAltIcon />
+                </BootstrapButton>
               </div>
             </Container>
           </Paper>
@@ -261,5 +275,54 @@ function HomePage() {
     </>
   );
 }
+
+const BootstrapButton = withStyles({
+  root: {
+    boxShadow: "none",
+    textTransform: "none",
+    fontSize: 20,
+    color: "#0d5b49",
+    padding: "6px 12px",
+    // borderBottom: "3px solid",
+    lineHeight: 1.5,
+    //  backgroundColor: "#0063cc",
+    // borderColor: "#0d5b49",
+    fontFamily: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
+    "&:hover": {
+      //   backgroundColor: "#C4C4C4",
+      //    borderColor: "#0062cc",
+      boxShadow: "none",
+    },
+    "&:active": {
+      boxShadow: "none",
+      //   backgroundColor: "#C4C4C4",
+      //     borderColor: "#005cbf",
+    },
+    "&:focus": {
+      boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    },
+  },
+})(Button);
+
+// // const ColorButton = withStyles((theme) => ({
+// //   root: {
+// //     color: theme.palette.getContrastText(purple[500]),
+// //     backgroundColor: purple[500],
+// //     "&:hover": {
+// //       backgroundColor: purple[700],
+// //     },
+// //   },
+// }))(Button);
 
 export default HomePage;

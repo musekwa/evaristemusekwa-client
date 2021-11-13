@@ -66,7 +66,6 @@ const styles = makeStyles((theme) => ({
   },
   primary: {
     color: "#0d5b49",
-    marginLeft: 5,
   },
   tabSelected: {},
   typography: {

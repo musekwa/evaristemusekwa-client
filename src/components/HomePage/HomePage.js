@@ -27,16 +27,22 @@ const mostPopularPost = {
     {
       title: "JavaScript Lodash Fundamentals",
       image: "/js1.jpg",
+      description: "This is a short post description",
+      content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
     {
       title: "JavaScript Lodash Advanced Concepts",
       image: "/js2.jpg",
+      description: "This is a short post description",
+      content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
     {
       title: "JavaScript Lodash Examples",
       image: "/js3.jpg",
+      description: "This is a short post description",
+      content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
   ],
@@ -44,16 +50,22 @@ const mostPopularPost = {
     {
       title: "Algorithms Lodash Fundamentals",
       image: "/js1.jpg",
+      description: "This is a short post description",
+      content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
     {
       title: "Algorithms Lodash Advanced Concepts",
       image: "/js2.jpg",
+      description: "This is a short post description",
+      content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
     {
       title: "Algorithms Lodash Examples",
       image: "/js3.jpg",
+      description: "This is a short post description",
+      content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
   ],
@@ -61,16 +73,22 @@ const mostPopularPost = {
     {
       title: "Uncategorized Lodash Fundamentals",
       image: "/js1.jpg",
+      description: "This is a short post description",
+      content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
     {
       title: "Uncategorized Lodash Advanced Concepts",
       image: "/js2.jpg",
+      description: "This is a short post description",
+      content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
     {
       title: "Uncategorized Lodash Examples",
       image: "/js3.jpg",
+      description: "This is a short post description",
+      content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
   ],
@@ -111,6 +129,8 @@ function HomePage() {
         : mostPopularPost["uncategorized"];
     setCategory(category);
   }, [isMobile, value]);
+  
+  console.log("category length", category);
 
   return (
     <>
@@ -174,7 +194,7 @@ function HomePage() {
                           inset
                         />
                       </ListItem>
-                      {index < 2 && <Divider component="li" />}
+                      {index < category.length-1 && <Divider component="li" />}
                     </>
                   );
                 })}
@@ -186,7 +206,7 @@ function HomePage() {
         <Grid className={classes.root} centered item>
           <Paper square elevation={2}>
             <Container>
-              <div>
+              <div style={{ paddingTop: 10, paddingBottom: 10,  }}>
                 <img alt="post" src="/js1.jpg" className="all-post-image" />
 
                 <Typography gutterBottom variant="h5" component="h2">
@@ -196,6 +216,7 @@ function HomePage() {
                   Lizards are a widespread group of squamate reptiles, with over
                   6,000 species, ranging across all continents except Antarctica
                 </Typography>
+                
               </div>
             </Container>
           </Paper>

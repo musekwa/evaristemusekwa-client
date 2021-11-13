@@ -1,6 +1,11 @@
 
-.post-image {
+.most-popular-post-image {
  width: 25%;
  margin-left: 5;
 
+}
+
+.all-post-image {
+  width: 90%;
+  margin-top: 20px;
 }

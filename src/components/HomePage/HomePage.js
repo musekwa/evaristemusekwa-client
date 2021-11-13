@@ -15,7 +15,10 @@ import {
   Typography,
   Card,
   CardActionArea,
+  Button,
+  Chip,
 } from "@material-ui/core";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import "./homepage.css";
 import styles from "./homepage.styles";
 import PostCard from "../Posts/PostCard";
@@ -28,6 +31,7 @@ const mostPopularPost = {
       title: "JavaScript Lodash Fundamentals",
       image: "/js1.jpg",
       description: "This is a short post description",
+      tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
@@ -35,6 +39,7 @@ const mostPopularPost = {
       title: "JavaScript Lodash Advanced Concepts",
       image: "/js2.jpg",
       description: "This is a short post description",
+      tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
@@ -42,6 +47,7 @@ const mostPopularPost = {
       title: "JavaScript Lodash Examples",
       image: "/js3.jpg",
       description: "This is a short post description",
+      tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
@@ -51,6 +57,7 @@ const mostPopularPost = {
       title: "Algorithms Lodash Fundamentals",
       image: "/js1.jpg",
       description: "This is a short post description",
+      tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
@@ -58,6 +65,7 @@ const mostPopularPost = {
       title: "Algorithms Lodash Advanced Concepts",
       image: "/js2.jpg",
       description: "This is a short post description",
+      tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
@@ -65,6 +73,7 @@ const mostPopularPost = {
       title: "Algorithms Lodash Examples",
       image: "/js3.jpg",
       description: "This is a short post description",
+      tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
@@ -74,6 +83,7 @@ const mostPopularPost = {
       title: "Uncategorized Lodash Fundamentals",
       image: "/js1.jpg",
       description: "This is a short post description",
+      tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
@@ -81,6 +91,7 @@ const mostPopularPost = {
       title: "Uncategorized Lodash Advanced Concepts",
       image: "/js2.jpg",
       description: "This is a short post description",
+      tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
@@ -88,6 +99,7 @@ const mostPopularPost = {
       title: "Uncategorized Lodash Examples",
       image: "/js3.jpg",
       description: "This is a short post description",
+      tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
       created: "Jan 21, 2021",
     },
@@ -129,7 +141,7 @@ function HomePage() {
         : mostPopularPost["uncategorized"];
     setCategory(category);
   }, [isMobile, value]);
-  
+
   console.log("category length", category);
 
   return (
@@ -181,20 +193,24 @@ function HomePage() {
                 {category.map((post, index) => {
                   return (
                     <>
-                      <ListItem className={classes.primary}>
-                        <img
-                          src={`${post.image}`}
-                          alt=""
-                          className="most-popular-post-image"
-                          id=""
-                        />
-                        <ListItemText
-                          primary={`${post.title}`}
-                          secondary="Jan 21, 2021"
-                          inset
-                        />
-                      </ListItem>
-                      {index < category.length-1 && <Divider component="li" />}
+                      <Button>
+                        <ListItem className={classes.primary}>
+                          <img
+                            src={`${post.image}`}
+                            alt=""
+                            className="most-popular-post-image"
+                            id=""
+                          />
+                          <ListItemText
+                            primary={`${post.title}`}
+                            secondary="Jan 21, 2021"
+                            inset
+                          />
+                        </ListItem>
+                      </Button>
+                      {index < category.length - 1 && (
+                        <Divider component="li" />
+                      )}
                     </>
                   );
                 })}
@@ -206,17 +222,37 @@ function HomePage() {
         <Grid className={classes.root} centered item>
           <Paper square elevation={2}>
             <Container>
-              <div style={{ paddingTop: 10, paddingBottom: 10,  }}>
+              <div style={{ paddingTop: 10, paddingBottom: 10 }}>
                 <img alt="post" src="/js1.jpg" className="all-post-image" />
 
                 <Typography gutterBottom variant="h5" component="h2">
                   Lizard
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <div className={classes.chip}>
+                  <Chip
+                    size="small"
+                    label="javascript"
+                    component="a"
+                    href="#chip"
+                    clickable
+                  />
+
+                  <Chip
+                    size="small"
+                    label="javascript"
+                    component="a"
+                    href="#chip"
+                    clickable
+                  />
+                </div>
+                <Typography variant="body1" color="textSecondary" component="p">
                   Lizards are a widespread group of squamate reptiles, with over
                   6,000 species, ranging across all continents except Antarctica
                 </Typography>
-                
+                <Button size="small" color="" variant="outlined">
+                  Learn More
+                  <ArrowRightAltIcon />
+                </Button>
               </div>
             </Container>
           </Paper>

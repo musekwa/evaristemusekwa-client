@@ -71,6 +71,16 @@ const styles = makeStyles((theme) => ({
   typography: {
     //   padding: theme.spacing.unit * 3,
   },
+
+  chip: {
+    display: "flex",
+    flexWrap: "wrap",
+    "& > *": {
+      marginRight: theme.spacing(2),
+      marginTop: theme.spacing(1.5),
+      marginBottom: theme.spacing(1.5),
+    },
+  },
 }));
 
 export default styles;

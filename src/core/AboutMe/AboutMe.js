@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Grid, Paper, Typography } from "@material-ui/core";
+import { Container, Grid, Paper, Typography } from "@material-ui/core";
 import styles from "./aboutme.styles";
 import './aboutme.css'
 import { Link } from "react-router-dom";
@@ -32,7 +32,7 @@ function AboutMe() {
             be a humble team player.
             <br /> <br />
             On my blog{" "}
-            <Link to="/" style={{ color: "#0d5b49" }} href="#">
+            <Link to="/" style={{ color: "#0d5b49" }} >
               https://evaristemusekwa.com
             </Link>{" "}
             , I publish weekly posts about countless computer science topics,
@@ -42,13 +42,13 @@ function AboutMe() {
             <br /> <br />
             I’m always interested in challenging projects and job opportunities.
             You’re welcome to contact me at{" "}
-            <a style={{ color: "#0d5b49" }} href="#">
+            <Link style={{ color: "#0d5b49" }} to="#">
               musekwa2011@gmail.com
-            </a>{" "}
+            </Link>{" "}
             or write a message on{" "}
-            <a style={{ color: "#0d5b49" }} href="#">
+            <Link style={{ color: "#0d5b49" }} to="#">
               LinkedIn.
-            </a>
+            </Link>
             <img src="./about-me-picture.jpeg" alt="Evariste Musekwa Iguna" />
           </Typography>
         </Paper>

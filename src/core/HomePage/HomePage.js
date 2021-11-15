@@ -1,5 +1,4 @@
-import React, { useState, useEffect, Children } from "react";
-// import { Row, Col, Card, Nav } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Tabs,
@@ -10,21 +9,16 @@ import {
   ListItem,
   ListItemText,
   Grid,
-  CardContent,
-  CardMedia,
   Typography,
-  Card,
-  CardActionArea,
   Button,
   Chip,
 } from "@material-ui/core";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { Link } from "react-router-dom";
 import "./homepage.css";
 import styles from "./homepage.styles";
-import PostCard from "../Posts/PostCard";
-import "./homepage.css";
+
 
 // test postcards
 const mostPopularPost = {
@@ -118,6 +112,9 @@ function HomePage() {
   const [value, setValue] = useState(0);
   const [category, setCategory] = useState([]);
   const classes = styles();
+  //const history = useHistory();
+
+  //console.log('useHistory ', history);
 
   const handleChange = (event, value) => {
     setValue(value);
@@ -144,7 +141,7 @@ function HomePage() {
     setCategory(category);
   }, [isMobile, value]);
 
-  console.log("category length", category);
+  // console.log("category length", category);
 
   return (
     <>
@@ -195,7 +192,15 @@ function HomePage() {
                 {category.map((post, index) => {
                   return (
                     <>
-                      <BootstrapButton>
+                      <BootstrapButton
+                        component={Link}
+                        to={{
+                          pathname: "/post",
+                          search: `?title=${post.title}`,
+                          hash: "#hash-title",
+                          state: { Post: true },
+                        }}
+                      >
                         <ListItem className={classes.primary}>
                           <img
                             src={`${post.image}`}
@@ -342,6 +347,11 @@ function HomePage() {
             </Container>
           </Paper>
         </Grid>
+        {/* <CustomizedCard>
+          <CardContent>
+            <Typography>This is a card</Typography>
+          </CardContent>
+        </CustomizedCard> */}
       </Grid>
     </>
   );
@@ -381,10 +391,21 @@ const BootstrapButton = withStyles({
       borderColor: "#0d5b49",
     },
     "&:focus": {
- //     boxShadow: "0 0 0 0.2rem rgba(30, 130, 76, 1)",
+      //     boxShadow: "0 0 0 0.2rem rgba(30, 130, 76, 1)",
     },
   },
 })(Button);
 
+// const CustomizedCard = theme => withStyles(({ classes })=>({
+//   card : {
+//     width: 135,
+//     height: 135,
+//     textAlign: 'center',
+//   },
+
+//   cardAction: {
+//     justifyContent: 'center',
+//   }
+// }))(Card);
 
 export default HomePage;

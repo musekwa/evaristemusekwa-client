@@ -13,10 +13,7 @@ function NavBar() {
             className="d-inline-block align-top logo"
           />{" "}
           <p>
-            <span id="blog-owner-name"
-            >
-              Evariste Musekwa Iguna
-            </span>
+            <span id="blog-owner-name">Evariste Musekwa Iguna</span>
             <br />
             <span id="blog-owner-profession">Web Technologist</span>
           </p>
@@ -34,6 +31,9 @@ function NavBar() {
             <Nav.Link className="link" href="/about-me">
               About Me
             </Nav.Link>
+            {/* <Nav.Link className="link" href="/post">
+              Post
+            </Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

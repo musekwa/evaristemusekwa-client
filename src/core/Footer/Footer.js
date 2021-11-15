@@ -1,7 +1,11 @@
 import React from "react";
 import styles from "./footer.styles";
-import { Box, Container, Grid, Typography } from "@material-ui/core";
+import { Box, Container, Grid, Typography, TextField } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
 function Footer() {
   const classes = styles();
@@ -17,7 +21,7 @@ function Footer() {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginBottom: "15px",
+                alignItems: "center",
               }}
             >
               <Grid item>
@@ -53,21 +57,13 @@ function Footer() {
                   Search
                 </Typography>
               </Grid>
-              <Grid item>
-                <Typography
-                  variant="body1"
-                  align="center"
-                  className={classes.optional}
-                >
-                  About Me
-                </Typography>
-              </Grid>
             </Grid>
           </Grid>
           <Grid item xs={12} sm={4}>
+            <Typography variant="body1" align="center" gutterBottom>More About Me</Typography>
             <Grid
-              spacing={3}
               container
+              spacing={3}
               style={{
                 display: "flex",
                 justifyContent: "center",
@@ -75,14 +71,16 @@ function Footer() {
               }}
             >
               <Grid item>
-                <Typography variant="body1" align="center">
-                  Footer 2
-                </Typography>
+                <GitHubIcon />
               </Grid>
               <Grid item>
-                <Typography variant="body1" align="center">
-                  Footer 2
-                </Typography>
+                <TwitterIcon />
+              </Grid>
+              <Grid item>
+                <LinkedInIcon />
+              </Grid>
+              <Grid item>
+                <FacebookIcon />
               </Grid>
             </Grid>
           </Grid>

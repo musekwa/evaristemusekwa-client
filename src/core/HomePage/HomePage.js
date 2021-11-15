@@ -244,6 +244,7 @@ function HomePage() {
                     hash: "#the-hash",
                     state: { HomePage: true },
                   }}
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Typography
                     gutterBottom
@@ -305,6 +306,7 @@ function HomePage() {
                     hash: "#the-hash",
                     state: { HomePage: true },
                   }}
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Typography
                     gutterBottom

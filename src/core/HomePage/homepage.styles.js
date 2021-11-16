@@ -18,7 +18,7 @@ const styles = makeStyles((theme) => ({
   },
   tabsRoot: {
     textColor: "#0d5b49",
-    backgroundColor: "#efffff",
+    backgroundColor: "#eeeeee",
     [theme.breakpoints.down("md")]: {},
   },
   tabsIndicator: {
@@ -82,6 +82,11 @@ const styles = makeStyles((theme) => ({
       marginTop: theme.spacing(1.5),
       marginBottom: theme.spacing(1.5),
     },
+  },
+
+  chipItem: {
+  
+
   },
 }));
 

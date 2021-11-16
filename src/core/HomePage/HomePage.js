@@ -18,89 +18,9 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { Link } from "react-router-dom";
 import "./homepage.css";
 import styles from "./homepage.styles";
-
+import { mostPopularPosts, allPosts } from "../../fakedata/fakedata.test";
 
 // test postcards
-const mostPopularPost = {
-  javascript: [
-    {
-      title: "JavaScript Lodash Fundamentals",
-      image: "/picture1.png",
-      description: "This is a short post description",
-      tags: ["javascript", "lodash"],
-      content: "This is the long long long post content",
-      created: "Jan 21, 2021",
-    },
-    {
-      title: "JavaScript Lodash Advanced Concepts",
-      image: "/picture1.png",
-      description: "This is a short post description",
-      tags: ["javascript", "lodash"],
-      content: "This is the long long long post content",
-      created: "Jan 21, 2021",
-    },
-    {
-      title: "JavaScript Lodash Examples",
-      image: "/picture1.png",
-      description: "This is a short post description",
-      tags: ["javascript", "lodash"],
-      content: "This is the long long long post content",
-      created: "Jan 21, 2021",
-    },
-  ],
-  algorithms: [
-    {
-      title: "Algorithms Lodash Fundamentals",
-      image: "/picture1.png",
-      description: "This is a short post description",
-      tags: ["javascript", "lodash"],
-      content: "This is the long long long post content",
-      created: "Jan 21, 2021",
-    },
-    {
-      title: "Algorithms Lodash Advanced Concepts",
-      image: "/picture1.png",
-      description: "This is a short post description",
-      tags: ["javascript", "lodash"],
-      content: "This is the long long long post content",
-      created: "Jan 21, 2021",
-    },
-    {
-      title: "Algorithms Lodash Examples",
-      image: "/picture1.png",
-      description: "This is a short post description",
-      tags: ["javascript", "lodash"],
-      content: "This is the long long long post content",
-      created: "Jan 21, 2021",
-    },
-  ],
-  uncategorized: [
-    {
-      title: "Uncategorized Lodash Fundamentals",
-      image: "/picture1.png",
-      description: "This is a short post description",
-      tags: ["javascript", "lodash"],
-      content: "This is the long long long post content",
-      created: "Jan 21, 2021",
-    },
-    {
-      title: "Uncategorized Lodash Advanced Concepts",
-      image: "/picture1.png",
-      description: "This is a short post description",
-      tags: ["javascript", "lodash"],
-      content: "This is the long long long post content",
-      created: "Jan 21, 2021",
-    },
-    {
-      title: "Uncategorized Lodash Examples",
-      image: "/picture1.png",
-      description: "This is a short post description",
-      tags: ["javascript", "lodash"],
-      content: "This is the long long long post content",
-      created: "Jan 21, 2021",
-    },
-  ],
-};
 
 const TabPanel = (props) => {
   return <div>{props.children}</div>;
@@ -112,7 +32,7 @@ function HomePage() {
   const [value, setValue] = useState(0);
   const [category, setCategory] = useState([]);
   const classes = styles();
-  //const history = useHistory();
+  //const { path, url} = match;
 
   //console.log('useHistory ', history);
 
@@ -120,10 +40,10 @@ function HomePage() {
     setValue(value);
     const category =
       value === 0
-        ? mostPopularPost["javascript"]
+        ? mostPopularPosts["javascript"]
         : value === 1
-        ? mostPopularPost["algorithms"]
-        : mostPopularPost["uncategorized"];
+        ? mostPopularPosts["algorithms"]
+        : mostPopularPosts["uncategorized"];
     setCategory(category);
   };
 
@@ -134,10 +54,10 @@ function HomePage() {
 
     const category =
       value === 0
-        ? mostPopularPost["javascript"]
+        ? mostPopularPosts["javascript"]
         : value === 1
-        ? mostPopularPost["algorithms"]
-        : mostPopularPost["uncategorized"];
+        ? mostPopularPosts["algorithms"]
+        : mostPopularPosts["uncategorized"];
     setCategory(category);
   }, [isMobile, value]);
 
@@ -208,9 +128,10 @@ function HomePage() {
                             className="most-popular-post-image"
                             id=""
                           />
+
                           <ListItemText
                             primary={`${post.title}`}
-                            secondary="Jan 21, 2021"
+                            secondary={`${post.createdAt}`}
                             inset
                           />
                         </ListItem>
@@ -225,135 +146,96 @@ function HomePage() {
             </TabPanel>
           </Paper>
         </Grid>
-
-        <Grid className={classes.root} centered item>
-          <Paper square elevation={2}>
-            <Container>
-              <div style={{ paddingTop: 10, paddingBottom: 10 }}>
-                <Link to="/">
-                  <img
-                    alt="post"
-                    src="/picture1.png"
-                    className="all-post-image"
-                  />
-                </Link>
-                <Link
-                  to={{
-                    pathname: "/",
-                    search: `?tilte=${"change this later"}`,
-                    hash: "#the-hash",
-                    state: { HomePage: true },
-                  }}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    style={{ color: "#0d5b49", fontWeight: "bolder" }}
-                  >
-                    Lizard
-                  </Typography>
-                </Link>
-                <div className={classes.chips}>
-                  <Chip
-                    size="large"
-                    label="javascript"
-                    component="a"
-                    href="#chip"
-                    clickable
-                    style={{ color: "inherit" }}
-                    className="chipItem"
-                  />
-
-                  <Chip
-                    size="large"
-                    label="javascript"
-                    component="a"
-                    href="#chip"
-                    clickable
-                    style={{ color: "inherit" }}
-                    className="chipItem"
-                  />
-                </div>
-                <Typography variant="body1" color="textSecondary" component="p">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-                <BootstrapButton>
-                  Continue reading
-                  <ArrowRightAltIcon />
-                </BootstrapButton>
-              </div>
-            </Container>
-          </Paper>
-        </Grid>
-
-        <Grid className={classes.root} centered item>
-          <Paper square elevation={2}>
-            <Container>
-              <div style={{ paddingTop: 10, paddingBottom: 10 }}>
-                <Link to="/">
-                  <img
-                    alt="post"
-                    src="/picture1.png"
-                    className="all-post-image"
-                  />
-                </Link>
-                <Link
-                  to={{
-                    pathname: "/",
-                    search: `?tilte=${"change this later"}`,
-                    hash: "#the-hash",
-                    state: { HomePage: true },
-                  }}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    style={{ color: "#0d5b49", fontWeight: "bolder" }}
-                  >
-                    Lizard
-                  </Typography>
-                </Link>
-                <div className={classes.chips}>
-                  <Chip
-                    size="large"
-                    label="javascript"
-                    component="a"
-                    href="#chip"
-                    clickable
-                    style={{ color: "inherit" }}
-                    className="chipItem"
-                  />
-
-                  <Chip
-                    size="large"
-                    label="javascript"
-                    component="a"
-                    href="#chip"
-                    clickable
-                    style={{ color: "inherit" }}
-                    className="chipItem"
-                  />
-                </div>
-                <Typography variant="body1" color="textSecondary" component="p">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-                <BootstrapButton>
-                  Continue reading
-                  <ArrowRightAltIcon />
-                </BootstrapButton>
-              </div>
-            </Container>
-          </Paper>
-        </Grid>
-        {/* <CustomizedCard>
-          <CardContent>
-            <Typography>This is a card</Typography>
-          </CardContent>
-        </CustomizedCard> */}
+        {Object.values(allPosts)
+          .flat()
+          .map((post, index) => {
+            return (
+              <Grid className={classes.root} centered item>
+                <Paper square elevation={2}>
+                  <Container>
+                    <div style={{ paddingTop: 10, paddingBottom: 10 }}>
+                      <Link
+                        to={{
+                          pathname: "/post",
+                          search: `?tilte=${post.title}`,
+                          hash: "#the-hash",
+                          state: { Post: true },
+                        }}
+                      >
+                        <img
+                          alt="post"
+                          src={`${post.image}`}
+                          className="all-post-image"
+                        />
+                      </Link>
+                      <Link
+                        to={{
+                          pathname: "/post",
+                          search: `?tilte=${post.title}`,
+                          hash: "#the-hash",
+                          state: { Post: true },
+                        }}
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                        }}
+                      >
+                        <Typography
+                          gutterBottom
+                          variant="h5"
+                          style={{
+                            color: "#0d5b49",
+                            fontWeight: "bolder",
+                          }}
+                        >
+                          {post.title}
+                        </Typography>
+                      </Link>
+                      <div className={classes.chips}>
+                        {post.tags.map((tag, index) => {
+                          return (
+                            <Chip
+                              size="large"
+                              label={`${tag}`}
+                              component={Link}
+                              to={{
+                                pathname: "/all-posts",
+                                search: `?tag=${tag}`,
+                                hash: "#the-hash",
+                                state: { AllPosts: true },
+                              }}
+                              clickable
+                              style={{ color: "inherit" }}
+                              className="chipItem"
+                            />
+                          );
+                        })}
+                      </div>
+                      <Typography
+                        variant="body1"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        {post.description}
+                      </Typography>
+                      <BootstrapButton
+                        component={Link}
+                        to={{
+                          pathname: "/post",
+                          search: `?tilte=${post.title}`,
+                          hash: "#the-hash",
+                          state: { Post: true },
+                        }}
+                      >
+                        Continue reading
+                        <ArrowRightAltIcon />
+                      </BootstrapButton>
+                    </div>
+                  </Container>
+                </Paper>
+              </Grid>
+            );
+          })}
       </Grid>
     </>
   );
@@ -366,10 +248,7 @@ const BootstrapButton = withStyles({
     fontSize: 20,
     color: "#0d5b49",
     padding: "6px 12px",
-    // borderBottom: "3px solid",
     lineHeight: 1.5,
-    //  backgroundColor: "#0063cc",
-    // borderColor: "#0d5b49",
     fontFamily: [
       "-apple-system",
       "BlinkMacSystemFont",
@@ -385,6 +264,7 @@ const BootstrapButton = withStyles({
     "&:hover": {
       //   backgroundColor: "#C4C4C4",
       borderColor: "#0d5b49",
+      color: "#0d5b49",
       boxShadow: "none",
     },
     "&:active": {
@@ -397,17 +277,5 @@ const BootstrapButton = withStyles({
     },
   },
 })(Button);
-
-// const CustomizedCard = theme => withStyles(({ classes })=>({
-//   card : {
-//     width: 135,
-//     height: 135,
-//     textAlign: 'center',
-//   },
-
-//   cardAction: {
-//     justifyContent: 'center',
-//   }
-// }))(Card);
 
 export default HomePage;

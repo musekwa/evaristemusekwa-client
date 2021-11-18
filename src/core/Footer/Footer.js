@@ -117,15 +117,6 @@ function Footer() {
                   <LinkedInIcon fontSize="large" />
                 </Button>
               </Grid>
-              {/* <Grid item>
-                <Button
-                  variant="text"
-                  className={classes.externalLinksButton}
-                  onClick={() => openNewWindowTab("")}
-                >
-                  <FacebookIcon fontSize="large" />
-                </Button>
-              </Grid> */}
             </Grid>
           </Grid>
         </Grid>
@@ -134,7 +125,7 @@ function Footer() {
           Licensed under
           <Button
             variant="text"
-            style={{ color: "inherit" }}
+            style={{ color: "inherit", }}
             onClick={() =>
               openNewWindowTab("https://creativecommons.org/licenses/by/4.0/")
             }

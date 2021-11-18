@@ -20,17 +20,13 @@ import "./homepage.css";
 import styles from "./homepage.styles";
 import { mostPopularPosts, allPosts } from "../../fakedata/fakedata.test";
 
-const TabPanel = (props) => {
-  return <div>{props.children}</div>;
-};
-
 // Home page component
 function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
   const [value, setValue] = useState(0);
   const [category, setCategory] = useState([]);
+  const [threeMostPopularPosts, setThreeMostPopularPosts] = useState([]);
   const classes = styles();
-
 
   const handleCategory = (event, value) => {
     setValue(value);
@@ -41,23 +37,18 @@ function HomePage() {
         ? mostPopularPosts["algorithms"]
         : mostPopularPosts["uncategorized"];
     setCategory(category);
+
+    // You need to find parameters that determine
+    // the selection of most popular posts
+    setThreeMostPopularPosts(category.slice(0, 3));
   };
 
-  useEffect(()=>handleCategory(null, 0), []);
+  useEffect(() => handleCategory(null, 0), []);
 
-    // continuously check the window width resizing
-    useEffect(() => {
-      let flag = window.innerWidth <= 690;
-      setIsMobile(flag);
-
-      // const category =
-      //   value === 0
-      //     ? mostPopularPosts["javascript"]
-      //     : value === 1
-      //     ? mostPopularPosts["algorithms"]
-      //     : mostPopularPosts["uncategorized"];
-      // setCategory(category);
-    }, [isMobile, value]);
+  useEffect(() => {
+    let flag = window.innerWidth <= 690;
+    setIsMobile(flag);
+  }, [isMobile, value]);
 
   return (
     <>
@@ -101,137 +92,146 @@ function HomePage() {
           </Paper>
         </Grid>
         <Divider />
-        <Grid className={classes.root} centered item>
+        <Grid className={classes.root} item>
           <Paper square elevation={2}>
-            <TabPanel category={category}>
-              <List>
-                {category.map((post, index) => {
-                  return (
-                    <>
-                      <BootstrapButton
-                        component={Link}
-                        to={{
-                          pathname: "/post",
-                          search: `?title=${post.title}`,
-                          hash: "#hash-title",
-                          state: { Post: true },
-                        }}
-                      >
-                        <ListItem className={classes.primary}>
-                          <img
-                            src={`${post.image}`}
-                            alt=""
-                            className="most-popular-post-image"
-                            id=""
-                          />
-
-                          <ListItemText
-                            primary={`${post.title}`}
-                            secondary={`${post.createdAt}`}
-                            inset
-                          />
-                        </ListItem>
-                      </BootstrapButton>
-                      {index < 3 && (
-                        <Divider component="li" />
-                      )}
-                    </>
-                  );
-                })}
-              </List>
-            </TabPanel>
-          </Paper>
-        </Grid>
-        {/* {Object.values(allPosts)
-          .flat() */}
-          {category.map((post, index) => {
-            return (
-              <Grid className={classes.root} centered item>
-                <Paper square elevation={2}>
-                  <Container>
-                    <div style={{ paddingTop: 10, paddingBottom: 10 }}>
-                      <Link
-                        to={{
-                          pathname: "/post",
-                          search: `?tilte=${post.title}`,
-                          hash: "#the-hash",
-                          state: { Post: true },
-                        }}
-                      >
+            {threeMostPopularPosts.map((post, index) => {
+              return (
+                <>
+                  <BootstrapButton
+                    component={Link}
+                    to={{
+                      pathname: "/post",
+                      search: `?title=${post.title}`,
+                      hash: "#hash-title",
+                      state: { Post: true },
+                    }}
+                  >
+                    <Grid
+                      container
+                      spacing={1}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Grid item xs={4}>
                         <img
-                          alt="post"
                           src={`${post.image}`}
-                          className="all-post-image"
+                          alt=""
+                          className="most-popular-post-image"
+                          id=""
                         />
-                      </Link>
-                      <Link
-                        to={{
-                          pathname: "/post",
-                          search: `?tilte=${post.title}`,
-                          hash: "#the-hash",
-                          state: { Post: true },
-                        }}
-                        style={{
-                          textDecoration: "none",
-                          color: "inherit",
-                        }}
-                      >
+                      </Grid>
+                      <Grid item xs={8}>
                         <Typography
-                          gutterBottom
-                          variant="h5"
-                          style={{
-                            color: "#0d5b49",
-                            fontWeight: "bolder",
-                          }}
-                        >
-                          {post.title}
-                        </Typography>
-                      </Link>
-                      <div className={classes.chips}>
-                        {post.tags.map((tag, index) => {
-                          return (
-                            <Chip
-                              size="large"
-                              label={`${tag}`}
-                              component={Link}
-                              to={{
-                                pathname: "/all-posts",
-                                search: `?tag=${tag}`,
-                                hash: "#the-hash",
-                                state: { AllPosts: true },
-                              }}
-                              clickable
-                              style={{ color: "inherit" }}
-                              className="chipItem"
-                            />
-                          );
-                        })}
-                      </div>
+
+                          className="title"
+                          variant="h6"
+                        >{`${post.title}`}</Typography>
+                        <Typography
+                          variant="body1"
+                          color="textSecondary"
+                        >{`${post.createdAt}`}</Typography>
+                      </Grid>
+                    </Grid>
+                  </BootstrapButton>
+                  {index < 2 && <Divider />}
+                </>
+              );
+            })}
+          </Paper>
+
+        </Grid>
+
+        {category.map((post, index) => {
+          return (
+            <Grid className={classes.root} centered item>
+              <Paper square elevation={2}>
+                <Container>
+                  <div style={{ paddingTop: 10, paddingBottom: 10 }}>
+                    <Link
+                      to={{
+                        pathname: "/post",
+                        search: `?tilte=${post.title}`,
+                        hash: "#the-hash",
+                        state: { Post: true },
+                      }}
+                    >
+                      <img
+                        alt="post"
+                        src={`${post.image}`}
+                        className="all-post-image"
+                      />
+                    </Link>
+                    <Link
+                      to={{
+                        pathname: "/post",
+                        search: `?tilte=${post.title}`,
+                        hash: "#the-hash",
+                        state: { Post: true },
+                      }}
+                      style={{
+                        textDecoration: "none",
+                        color: "inherit",
+                      }}
+                    >
                       <Typography
-                        variant="body1"
-                        color="textSecondary"
-                        component="p"
-                      >
-                        {post.description}
-                      </Typography>
-                      <BootstrapButton
-                        component={Link}
-                        to={{
-                          pathname: "/post",
-                          search: `?tilte=${post.title}`,
-                          hash: "#the-hash",
-                          state: { Post: true },
+                        gutterBottom
+                        variant="h5"
+                        style={{
+                          color: "#0d5b49",
+                          fontWeight: "bolder",
                         }}
+                        className="title"
                       >
-                        Continue reading
-                        <ArrowRightAltIcon />
-                      </BootstrapButton>
+                        {post.title}
+                      </Typography>
+                    </Link>
+                    <div className={classes.chips}>
+                      {post.tags.map((tag, index) => {
+                        return (
+                          <Chip
+                            size="large"
+                            label={`${tag}`}
+                            component={Link}
+                            to={{
+                              pathname: "/all-posts",
+                              search: `?tag=${tag}`,
+                              hash: "#the-hash",
+                              state: { AllPosts: true },
+                            }}
+                            clickable
+                            style={{ color: "inherit" }}
+                            className="chipItem"
+                          />
+                        );
+                      })}
                     </div>
-                  </Container>
-                </Paper>
-              </Grid>
-            );
-          })}
+                    <Typography
+                      variant="body1"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      {post.description}
+                    </Typography>
+                    <BootstrapButton
+                      component={Link}
+                      to={{
+                        pathname: "/post",
+                        search: `?tilte=${post.title}`,
+                        hash: "#the-hash",
+                        state: { Post: true },
+                      }}
+                    >
+                      Continue reading
+                      <ArrowRightAltIcon />
+                    </BootstrapButton>
+                  </div>
+                </Container>
+              </Paper>
+            </Grid>
+          );
+        })}
       </Grid>
     </>
   );

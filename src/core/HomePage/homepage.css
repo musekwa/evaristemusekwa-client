@@ -1,5 +1,5 @@
 .most-popular-post-image {
-  width: 37%;
+  width: 90%;
   
 }
 
@@ -11,6 +11,7 @@
   text-decoration: none;
 }
 
+.title:hover,
 .anchor:hover {
   color: "#ffffff";
   text-decoration: underline;

@@ -2,8 +2,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const styles = makeStyles((theme) => ({
   root: {
-    //  backgroundColor: theme.palette.background.paper,
-    //backgroundColor: "#efffff",
     width: "45%",
     color: "#0d5b49",
     [theme.breakpoints.down("md")]: {
@@ -65,7 +63,7 @@ const styles = makeStyles((theme) => ({
       //     fontSize: theme.typography.h6,
     },
   },
-  primary: {
+  popularItem: {
     color: "#0d5b49",
   },
   tabSelected: {},

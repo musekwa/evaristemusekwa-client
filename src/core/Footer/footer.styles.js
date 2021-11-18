@@ -22,6 +22,9 @@ const styles = makeStyles((theme) => ({
   internalLinks: {
     textDecoration: 'none',
     color: 'inherit',
+    "&:hover": {
+      color: "#000",
+    }
   },
   footer: {},
   optional: {

@@ -7,6 +7,7 @@ import NavBar from "./core/NavBar/NavBar";
 import NotFound from "./core/NotFound/NotFound";
 import Post from "./post/Posts/Post"
 import Footer from "./core/Footer/Footer";
+import Newsletter from './components/Newsletter/Newsletter';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/" element={<HomePage />}></Route>
         <Route exact path="/about-me" element={<AboutMe />}></Route>
         <Route exact path="/post" element={<Post />} />
+        <Route exact path="/newsletter" element={<Newsletter />} />
         <Route exact path="/all-posts" element={<AllPosts />}></Route>
         <Route element={<NotFound />} />
       </Routes>

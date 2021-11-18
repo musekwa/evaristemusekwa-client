@@ -20,8 +20,6 @@ import "./homepage.css";
 import styles from "./homepage.styles";
 import { mostPopularPosts, allPosts } from "../../fakedata/fakedata.test";
 
-// test postcards
-
 const TabPanel = (props) => {
   return <div>{props.children}</div>;
 };
@@ -32,11 +30,9 @@ function HomePage() {
   const [value, setValue] = useState(0);
   const [category, setCategory] = useState([]);
   const classes = styles();
-  //const { path, url} = match;
 
-  //console.log('useHistory ', history);
 
-  const handleChange = (event, value) => {
+  const handleCategory = (event, value) => {
     setValue(value);
     const category =
       value === 0
@@ -47,21 +43,21 @@ function HomePage() {
     setCategory(category);
   };
 
-  // continuously check the window width resizing
-  useEffect(() => {
-    let flag = window.innerWidth <= 690;
-    setIsMobile(flag);
+  useEffect(()=>handleCategory(null, 0), []);
 
-    const category =
-      value === 0
-        ? mostPopularPosts["javascript"]
-        : value === 1
-        ? mostPopularPosts["algorithms"]
-        : mostPopularPosts["uncategorized"];
-    setCategory(category);
-  }, [isMobile, value]);
+    // continuously check the window width resizing
+    useEffect(() => {
+      let flag = window.innerWidth <= 690;
+      setIsMobile(flag);
 
-  // console.log("category length", category);
+      // const category =
+      //   value === 0
+      //     ? mostPopularPosts["javascript"]
+      //     : value === 1
+      //     ? mostPopularPosts["algorithms"]
+      //     : mostPopularPosts["uncategorized"];
+      // setCategory(category);
+    }, [isMobile, value]);
 
   return (
     <>
@@ -77,7 +73,7 @@ function HomePage() {
           <Paper square>
             <Tabs
               value={value}
-              onChange={handleChange}
+              onChange={handleCategory}
               variant={!isMobile ? "standard" : "fullWidth"}
               classes={{
                 root: classes.tabsRoot,
@@ -136,7 +132,7 @@ function HomePage() {
                           />
                         </ListItem>
                       </BootstrapButton>
-                      {index < category.length - 1 && (
+                      {index < 3 && (
                         <Divider component="li" />
                       )}
                     </>
@@ -146,9 +142,9 @@ function HomePage() {
             </TabPanel>
           </Paper>
         </Grid>
-        {Object.values(allPosts)
-          .flat()
-          .map((post, index) => {
+        {/* {Object.values(allPosts)
+          .flat() */}
+          {category.map((post, index) => {
             return (
               <Grid className={classes.root} centered item>
                 <Paper square elevation={2}>

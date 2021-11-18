@@ -14,6 +14,15 @@ const styles = makeStyles((theme) => ({
     paddingTop: 40,
     
   },
+  externalLinksButton: {
+    color: 'inherit',
+    margin: 0,
+    padding: 0,
+  },
+  internalLinks: {
+    textDecoration: 'none',
+    color: 'inherit',
+  },
   footer: {},
   optional: {
     color: "inherit",

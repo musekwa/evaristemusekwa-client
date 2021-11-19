@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import AboutMe from "./core/AboutMe/AboutMe";
 import AllPosts from "./post/AllPosts/AllPosts";
 import HomePage from "./core/HomePage/HomePage";
 import NavBar from "./core/NavBar/NavBar";
 import NotFound from "./core/NotFound/NotFound";
-import Post from "./post/Posts/Post"
+import Post from "./post/Posts/Post";
 import Footer from "./core/Footer/Footer";
-import Newsletter from './components/Newsletter/Newsletter';
+import Newsletter from "./components/Newsletter/Newsletter";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    demoAsyncCall().then(() => setLoading(false));
+  }, []);
+  const demoAsyncCall = () => {
+    return new Promise((resolve) => setTimeout(() => resolve(), 1000));
+  }
+
+  if (loading) return null;
+
   return (
     <>
       <NavBar />

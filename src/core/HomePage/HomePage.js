@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
 import {
   Container,
-  Tabs,
-  Tab,
   Paper,
   Divider,
-  List,
-  ListItem,
-  ListItemText,
   Grid,
   Typography,
-  Button,
   Chip,
 } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { Link } from "react-router-dom";
 import "./homepage.css";
 import styles from "./homepage.styles";
 import { mostPopularPosts, allPosts } from "../../fakedata/fakedata.test";
+import TabCategory from "../Tab/TabCategory";
+import TopThreePosts from "./TopThreePosts/TopThreePosts";
+import BootstrapButton from "./CustomizedButtons/BootstrapButton";
 
 // Home page component
 function HomePage() {
@@ -61,88 +57,18 @@ function HomePage() {
         spacing={3}
       >
         <Grid className={classes.root} centered item>
-          <Paper square>
-            <Tabs
-              value={value}
-              onChange={handleCategory}
-              variant={!isMobile ? "standard" : "fullWidth"}
-              classes={{
-                root: classes.tabsRoot,
-                indicator: classes.tabsIndicator,
-              }}
-            >
-              <Tab
-                variant="fixed"
-                label="JavaScript"
-                classes={{ root: classes.tabRoot }}
-              />
-              <Tab
-                variant="fixed"
-                label={
-                  !isMobile ? "Algorithms & Data Structures" : "Algorithms"
-                }
-                classes={{ root: classes.tabRoot }}
-              />
-              <Tab
-                variant="fixed"
-                label="Uncategorized"
-                classes={{ root: classes.tabRoot }}
-              />
-            </Tabs>
-          </Paper>
+          <TabCategory
+            classes={classes}
+            isMobile={isMobile}
+            handleCategory={handleCategory}
+            value={value}
+          />
         </Grid>
         <Divider />
         <Grid className={classes.root} item>
-          <Paper square elevation={2}>
-            {threeMostPopularPosts.map((post, index) => {
-              return (
-                <>
-                  <BootstrapButton
-                    component={Link}
-                    to={{
-                      pathname: "/post",
-                      search: `?title=${post.title}`,
-                      hash: "#hash-title",
-                      state: { Post: true },
-                    }}
-                  >
-                    <Grid
-                      container
-                      spacing={1}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Grid item xs={4}>
-                        <img
-                          src={`${post.image}`}
-                          alt=""
-                          className="most-popular-post-image"
-                          id=""
-                        />
-                      </Grid>
-                      <Grid item xs={8}>
-                        <Typography
-
-                          className="title"
-                          variant="h6"
-                        >{`${post.title}`}</Typography>
-                        <Typography
-                          variant="body1"
-                          color="textSecondary"
-                        >{`${post.createdAt}`}</Typography>
-                      </Grid>
-                    </Grid>
-                  </BootstrapButton>
-                  {index < 2 && <Divider />}
-                </>
-              );
-            })}
-          </Paper>
-
+          <TopThreePosts threeMostPopularPosts={threeMostPopularPosts} />
         </Grid>
-
+      
         {category.map((post, index) => {
           return (
             <Grid className={classes.root} centered item>
@@ -236,42 +162,5 @@ function HomePage() {
     </>
   );
 }
-
-const BootstrapButton = withStyles({
-  root: {
-    boxShadow: "none",
-    textTransform: "none",
-    fontSize: 20,
-    color: "#0d5b49",
-    padding: "6px 12px",
-    lineHeight: 1.5,
-    fontFamily: [
-      "-apple-system",
-      "BlinkMacSystemFont",
-      '"Segoe UI"',
-      "Roboto",
-      '"Helvetica Neue"',
-      "Arial",
-      "sans-serif",
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(","),
-    "&:hover": {
-      //   backgroundColor: "#C4C4C4",
-      borderColor: "#0d5b49",
-      color: "#0d5b49",
-      boxShadow: "none",
-    },
-    "&:active": {
-      boxShadow: "none",
-      //   backgroundColor: "#C4C4C4",
-      borderColor: "#0d5b49",
-    },
-    "&:focus": {
-      //     boxShadow: "0 0 0 0.2rem rgba(30, 130, 76, 1)",
-    },
-  },
-})(Button);
 
 export default HomePage;

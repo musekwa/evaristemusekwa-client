@@ -13,7 +13,8 @@ function NavBar() {
             className="d-inline-block align-top logo"
           />{" "}
           <p>
-            <span id="blog-owner-name">Evariste Musekwa Iguna</span>
+            <span id="blog-owner-name">Evariste Musekwa</span>
+            
             <span id="blog-owner-profession">Web Technologist</span>
           </p>
         </Navbar.Brand>

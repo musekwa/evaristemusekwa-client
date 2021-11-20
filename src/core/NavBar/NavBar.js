@@ -14,7 +14,6 @@ function NavBar() {
           />{" "}
           <p>
             <span id="blog-owner-name">Evariste Musekwa Iguna</span>
-            <br />
             <span id="blog-owner-profession">Web Technologist</span>
           </p>
         </Navbar.Brand>

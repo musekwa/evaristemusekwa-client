@@ -1,19 +1,17 @@
 .most-popular-post-image {
   width: 100%;
-  
+  height: auto;
 }
 
 .all-post-image {
   margin-bottom: 15px;
 }
 
-.anchor {
-  text-decoration: none;
+.title {
+  font-family: "Arbutus Slab", serif;
 }
 
-.title:hover,
-.anchor:hover {
+.title:hover {
   color: "#ffffff";
   text-decoration: underline;
 }
-

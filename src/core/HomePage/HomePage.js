@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from "react";
-import {
-  Container,
-  Paper,
-  Divider,
-  Grid,
-  Typography,
-  Chip,
-} from "@material-ui/core";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import { Link } from "react-router-dom";
+import { Divider, Grid } from "@material-ui/core";
 import "./homepage.css";
 import styles from "./homepage.styles";
-import { mostPopularPosts, allPosts } from "../../fakedata/fakedata.test";
+import { mostPopularPosts } from "../../fakedata/fakedata.test";
 import TabCategory from "../Tab/TabCategory";
 import TopThreePosts from "./TopThreePosts/TopThreePosts";
-import BootstrapButton from "./CustomizedButtons/BootstrapButton";
+//import PostCard from "../PostCard/PostCard";
+import PostCardsList from "../../components/ListPostCards/PostCardsList";
+import ReactPaginate from "react-paginate";
+//import PaginatedPostCards from "../../components/ListPostCards/PaginatedPostCards";
+//import PaginatedPostCards from "../ListPostCards/PaginatedPostCards";
 
 // Home page component
 function HomePage() {
@@ -22,6 +17,7 @@ function HomePage() {
   const [value, setValue] = useState(0);
   const [category, setCategory] = useState([]);
   const [threeMostPopularPosts, setThreeMostPopularPosts] = useState([]);
+   const [page, setPageNumber] = useState(0);
   const classes = styles();
 
   const handleCategory = (event, value) => {
@@ -47,7 +43,7 @@ function HomePage() {
   }, [isMobile, value]);
 
   return (
-    <>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <Grid
         container
         xs={12}
@@ -58,7 +54,6 @@ function HomePage() {
       >
         <Grid className={classes.root} centered item>
           <TabCategory
-            classes={classes}
             isMobile={isMobile}
             handleCategory={handleCategory}
             value={value}
@@ -68,98 +63,12 @@ function HomePage() {
         <Grid className={classes.root} item>
           <TopThreePosts threeMostPopularPosts={threeMostPopularPosts} />
         </Grid>
-      
-        {category.map((post, index) => {
-          return (
-            <Grid className={classes.root} centered item>
-              <Paper square elevation={2}>
-                <Container>
-                  <div style={{ paddingTop: 10, paddingBottom: 10 }}>
-                    <Link
-                      to={{
-                        pathname: "/post",
-                        search: `?tilte=${post.title}`,
-                        hash: "#the-hash",
-                        state: { Post: true },
-                      }}
-                    >
-                      <img
-                        alt="post"
-                        src={`${post.image}`}
-                        className="all-post-image"
-                      />
-                    </Link>
-                    <Link
-                      to={{
-                        pathname: "/post",
-                        search: `?tilte=${post.title}`,
-                        hash: "#the-hash",
-                        state: { Post: true },
-                      }}
-                      style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                      }}
-                    >
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        style={{
-                          color: "#0d5b49",
-                          fontWeight: "bolder",
-                        }}
-                        className="title"
-                      >
-                        {post.title}
-                      </Typography>
-                    </Link>
-                    <div className={classes.chips}>
-                      {post.tags.map((tag, index) => {
-                        return (
-                          <Chip
-                            size="large"
-                            label={`${tag}`}
-                            component={Link}
-                            to={{
-                              pathname: "/all-posts",
-                              search: `?tag=${tag}`,
-                              hash: "#the-hash",
-                              state: { AllPosts: true },
-                            }}
-                            clickable
-                            style={{ color: "inherit" }}
-                            className="chipItem"
-                          />
-                        );
-                      })}
-                    </div>
-                    <Typography
-                      variant="body1"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      {post.description}
-                    </Typography>
-                    <BootstrapButton
-                      component={Link}
-                      to={{
-                        pathname: "/post",
-                        search: `?tilte=${post.title}`,
-                        hash: "#the-hash",
-                        state: { Post: true },
-                      }}
-                    >
-                      Continue reading
-                      <ArrowRightAltIcon />
-                    </BootstrapButton>
-                  </div>
-                </Container>
-              </Paper>
-            </Grid>
-          );
-        })}
+        <Grid className={classes.root} item>
+          <PostCardsList postCards={category} />
+          {/* <PaginatedPostCards postCardsPerPage={3} category={category} /> */}
+        </Grid>
       </Grid>
-    </>
+    </div>
   );
 }
 

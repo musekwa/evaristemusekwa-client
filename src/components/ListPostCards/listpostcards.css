@@ -1,4 +1,4 @@
-/* .post {
+.post {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,4 +64,4 @@ small {
   pointer-events: none;
   box-shadow: none;
   color: #999;
-} */
+}

@@ -3,6 +3,8 @@ import React from 'react'
 import { Paper, Grid, Typography, Divider } from "@material-ui/core"; 
 import { Link } from 'react-router-dom';
 import BootstrapButton from '../CustomizedButtons/BootstrapButton';
+import './topthreeposts.css';
+
 
 function TopThreePosts(props) {
     const { threeMostPopularPosts } = props; 
@@ -40,6 +42,7 @@ function TopThreePosts(props) {
                     <Typography
                       className="title"
                       variant="h6"
+                      style={{ fontFamily: "Arbutus Slab serif" }}
                     >{`${post.title}`}</Typography>
                     <Typography
                       variant="body2"

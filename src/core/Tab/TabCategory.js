@@ -1,11 +1,13 @@
 
 import React from 'react'
 import { Paper, Tabs, Tab } from '@material-ui/core'
+import styles from './tab.styles'
 
 function TabCategory(props) {
-    const { handleCategory, isMobile, value, classes} = props;
+  const classes = styles();
+    const { handleCategory, isMobile, value} = props;
     return (
-      <Paper square>
+      <Paper square >
         <Tabs
           value={value}
           onChange={handleCategory}

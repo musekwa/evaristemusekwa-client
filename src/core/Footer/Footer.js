@@ -47,7 +47,18 @@ function Footer() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link className={classes.internalLinks} to="/portfolios">
+                <Link className={classes.internalLinks} to="/archives">
+                  <Typography
+                    variant="body1"
+                    align="center"
+                 //   className={classes.optional}
+                  >
+                    Archives
+                  </Typography>
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link className={classes.internalLinks} to="/portfolio">
                   <Typography variant="body1" align="center">
                     Portfolios
                   </Typography>
@@ -125,7 +136,7 @@ function Footer() {
           Licensed under
           <Button
             variant="text"
-            style={{ color: "inherit", }}
+            style={{ color: "inherit" }}
             onClick={() =>
               openNewWindowTab("https://creativecommons.org/licenses/by/4.0/")
             }

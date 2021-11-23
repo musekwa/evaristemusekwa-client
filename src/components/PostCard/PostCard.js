@@ -3,7 +3,7 @@ import { Grid, Container, Paper, Typography, Chip,  } from '@material-ui/core'
 import { Link } from 'react-router-dom';
 import styles from './postcard.styles.js'
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import BootstrapButton from '../../core/HomePage/CustomizedButtons/BootstrapButton.js';
+import BootstrapButton from '../../core/CustomizedButtons/BootstrapButton.js';
 
 function PostCard(props) {
     const classes = styles();

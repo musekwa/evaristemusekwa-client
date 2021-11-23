@@ -7,6 +7,33 @@ const styles = makeStyles((theme) => ({
     justifyContent: "center",
   },
 
+  allpostTitle: {
+    border: "1px solid",
+    width: "50%",
+    [theme.breakpoints.down("md")]: {
+      width: "60%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "80%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
+  },
+
+  dates: {
+    width: "50%",
+    [theme.breakpoints.down("md")]: {
+      width: "60%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "80%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
+  },
+
   paper: {
     padding: 15,
     marginTop: 10,
@@ -37,10 +64,22 @@ const styles = makeStyles((theme) => ({
   },
 
   title: {
- 
     "&:hover": {
       textDecoration: "underline",
+    },
+  },
 
+  tags: {
+    width: "22%",
+    [theme.breakpoints.down("md")]: {
+      width: "18%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "0%",
+      display: "none",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "0%",
     },
   },
 }));

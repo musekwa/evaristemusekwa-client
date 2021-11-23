@@ -25,7 +25,7 @@ function NavBar() {
             <Nav.Link className="link" href="all-posts">
               All Posts
             </Nav.Link>
-            <Nav.Link className="link" eventKey={2} href="/portfolios">
+            <Nav.Link className="link" eventKey={2} href="/portfolio">
               Portfolios
             </Nav.Link>
             <Nav.Link className="link" href="/about-me">

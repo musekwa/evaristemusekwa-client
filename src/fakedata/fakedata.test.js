@@ -144,7 +144,7 @@ const allPosts = {
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
-      createdAt: "Jan 21, 2021",
+      createdAt: "November 21, 2021",
     },
     {
       title: "All Posts: JavaScript Lodash Advanced Concepts",
@@ -152,7 +152,7 @@ const allPosts = {
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
-      createdAt: "Jan 21, 2021",
+      createdAt: "October 19, 2021",
     },
     {
       title: "All Posts: JavaScript Lodash Examples",
@@ -160,7 +160,31 @@ const allPosts = {
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
-      createdAt: "Jan 21, 2021",
+      createdAt: "June 30, 2021",
+    },
+    {
+      title: "All Posts: JavaScript Lodash Fundamentals",
+      image: "/picture1.png",
+      description: "This is a short post description",
+      tags: ["javascript", "lodash"],
+      content: "This is the long long long post content",
+      createdAt: "July 21, 2021",
+    },
+    {
+      title: "All Posts: JavaScript Lodash Advanced Concepts",
+      image: "/picture1.png",
+      description: "This is a short post description",
+      tags: ["javascript", "lodash"],
+      content: "This is the long long long post content",
+      createdAt: "July 19, 2021",
+    },
+    {
+      title: "All Posts: JavaScript Lodash Examples",
+      image: "/picture1.png",
+      description: "This is a short post description",
+      tags: ["javascript", "lodash"],
+      content: "This is the long long long post content",
+      createdAt: "July 30, 2021",
     },
   ],
   algorithms: [
@@ -170,7 +194,7 @@ const allPosts = {
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
-      createdAt: "Jan 21, 2021",
+      createdAt: "January 21, 2019",
     },
     {
       title: "All Posts: Algorithms Lodash Advanced Concepts",
@@ -178,7 +202,7 @@ const allPosts = {
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
-      createdAt: "Jan 21, 2021",
+      createdAt: "April 03, 2021",
     },
     {
       title: "All Posts: Algorithms Lodash Examples",
@@ -186,7 +210,7 @@ const allPosts = {
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
-      createdAt: "Jan 21, 2021",
+      createdAt: "September 21, 2019",
     },
   ],
   uncategorized: [
@@ -196,7 +220,15 @@ const allPosts = {
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
-      createdAt: "Jan 21, 2021",
+      createdAt: "March 21, 2019",
+    },
+    {
+      title: "Recently Introduced Uncategorized Lodash Examples",
+      image: "/picture1.png",
+      description: "This is a short post description",
+      tags: ["javascript", "lodash"],
+      content: "This is the long long long post content",
+      createdAt: "December 01, 2021",
     },
     {
       title: "All Posts: Uncategorized Lodash Advanced Concepts",
@@ -204,7 +236,7 @@ const allPosts = {
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
-      createdAt: "Jan 21, 2021",
+      createdAt: "March 15, 2019",
     },
     {
       title: "All Posts: Uncategorized Lodash Examples",
@@ -212,7 +244,7 @@ const allPosts = {
       description: "This is a short post description",
       tags: ["javascript", "lodash"],
       content: "This is the long long long post content",
-      createdAt: "Jan 21, 2021",
+      createdAt: "May 21, 2021",
     },
   ],
 };

@@ -1,10 +1,10 @@
-const mostPopularPosts = {
+const allPosts = {
   javascript: [
     {
       title: "1. JavaScript Lodash Fundamentals",
       image: "/picture1.png",
       description: "This is a short post description",
-      tags: ["javascript", "lodash", "array"],
+      tags: ["javascript", "array"],
       content: "This is the long long long post content",
       createdAt: "Jan 21, 2021",
     },
@@ -12,7 +12,7 @@ const mostPopularPosts = {
       title: "2. JavaScript Lodash Fundamentals",
       image: "/picture1.png",
       description: "This is a short post description",
-      tags: ["javascript", "node.js"],
+      tags: ["javascript", "variable", "node.js"],
       content: "This is the long long long post content",
       createdAt: "Jan 21, 2021",
     },
@@ -20,7 +20,7 @@ const mostPopularPosts = {
       title: "3. JavaScript Lodash Fundamentals",
       image: "/picture1.png",
       description: "This is a short post description",
-      tags: ["browser", "lodash"],
+      tags: ["browser", "lodash", "variable"],
       content: "This is the long long long post content",
       createdAt: "Jan 21, 2021",
     },
@@ -28,7 +28,7 @@ const mostPopularPosts = {
       title: "4. JavaScript Lodash Fundamentals",
       image: "/picture1.png",
       description: "This is a short post description",
-      tags: ["async", "react"],
+      tags: ["async", "react", "promise"],
       content: "This is the long long long post content",
       createdAt: "Jan 21, 2021",
     },
@@ -36,7 +36,7 @@ const mostPopularPosts = {
       title: "5. JavaScript Lodash Fundamentals",
       image: "/picture1.png",
       description: "This is a short post description",
-      tags: ["javascript", "lodash"],
+      tags: ["javascript", "lodash", "promise"],
       content: "This is the long long long post content",
       createdAt: "Jan 21, 2021",
     },
@@ -44,7 +44,7 @@ const mostPopularPosts = {
       title: "6. JavaScript Lodash Advanced Concepts",
       image: "/picture1.png",
       description: "This is a short post description",
-      tags: ["javascript", "lodash"],
+      tags: ["javascript", "lodash", "react"],
       content: "This is the long long long post content",
       createdAt: "Jan 21, 2021",
     },
@@ -52,7 +52,7 @@ const mostPopularPosts = {
       title: "7. JavaScript Lodash Examples",
       image: "/picture1.png",
       description: "This is a short post description",
-      tags: ["javascript", "lodash"],
+      tags: ["javascript", "async"],
       content: "This is the long long long post content",
       createdAt: "Jan 21, 2021",
     },
@@ -78,7 +78,7 @@ const mostPopularPosts = {
       title: "3. Algorithms Lodash Examples",
       image: "/picture1.png",
       description: "This is a short post description",
-      tags: ["graph", "cycle"],
+      tags: ["graph", "cycle", "algorithm"],
       content: "This is the long long long post content",
       createdAt: "Jan 21, 2021",
     },
@@ -86,7 +86,7 @@ const mostPopularPosts = {
       title: "4. Algorithms Lodash Fundamentals",
       image: "/picture1.png",
       description: "This is a short post description",
-      tags: ["binary-tree", "tree"],
+      tags: ["binary-tree", "tree", "algorithm"],
       content: "This is the long long long post content",
       createdAt: "Jan 21, 2021",
     },
@@ -94,7 +94,7 @@ const mostPopularPosts = {
       title: "5. Algorithms Lodash Advanced Concepts",
       image: "/picture1.png",
       description: "This is a short post description",
-      tags: ["javascript", "lodash"],
+      tags: ["javascript", "algorithm"],
       content: "This is the long long long post content",
       createdAt: "Jan 21, 2021",
     },
@@ -132,12 +132,6 @@ const mostPopularPosts = {
       content: "This is the long long long post content",
       createdAt: "Jan 21, 2021",
     },
-  ],
-};
-
-
-const allPosts = {
-  javascript: [
     {
       title: "All Posts: JavaScript Lodash Fundamentals",
       image: "/picture1.png",
@@ -186,8 +180,6 @@ const allPosts = {
       content: "This is the long long long post content",
       createdAt: "July 30, 2021",
     },
-  ],
-  algorithms: [
     {
       title: "All Posts: Algorithms Lodash Fundamentals",
       image: "/picture1.png",
@@ -212,8 +204,6 @@ const allPosts = {
       content: "This is the long long long post content",
       createdAt: "September 21, 2019",
     },
-  ],
-  uncategorized: [
     {
       title: "All Posts: Uncategorized Lodash Fundamentals",
       image: "/picture1.png",
@@ -250,6 +240,5 @@ const allPosts = {
 };
 
 module.exports = {
-    mostPopularPosts,
-    allPosts
+    allPosts,
 }

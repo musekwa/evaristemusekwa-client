@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Divider, Grid } from "@material-ui/core";
 import "./homepage.css";
 import styles from "./homepage.styles";
-import { mostPopularPosts } from "../../fakedata/fakedata.test";
+import { allPosts } from "../../fakedata/fakedata.test";
 import TabCategory from "../../core/Tab/TabCategory";
 import TopThreePosts from "../../core/TopThreePosts/TopThreePosts";
 //import PostCard from "../PostCard/PostCard";
@@ -24,10 +24,10 @@ function HomePage() {
     setValue(value);
     const category =
       value === 0
-        ? mostPopularPosts["javascript"]
+        ? allPosts["javascript"]
         : value === 1
-        ? mostPopularPosts["algorithms"]
-        : mostPopularPosts["uncategorized"];
+        ? allPosts["algorithms"]
+        : allPosts["uncategorized"];
     setCategory(category);
 
     // You need to find parameters that determine
@@ -65,7 +65,6 @@ function HomePage() {
         </Grid>
         <Grid className={classes.root} item>
           <PostCardsList postCards={category} />
-          {/* <PaginatedPostCards postCardsPerPage={3} category={category} /> */}
         </Grid>
       </Grid>
     </div>

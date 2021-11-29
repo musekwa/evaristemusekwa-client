@@ -3,7 +3,7 @@ import React from 'react'
 
 function Portfolio() {
     return (
-        <div>
+        <div style={{ minHeight: "100vh"}}>
             <h1>Portfolio</h1>
         </div>
     )

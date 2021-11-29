@@ -1,4 +1,7 @@
-
+#aboutme-container {
+    min-height: 100vh;
+    margin-bottom: 15px;
+}
 
 img {
     width: 100%;

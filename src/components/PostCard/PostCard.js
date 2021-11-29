@@ -5,9 +5,9 @@ import styles from './postcard.styles.js'
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import BootstrapButton from '../../core/CustomizedButtons/BootstrapButton.js';
 
-function PostCard(props) {
+function PostCard({ post }) {
     const classes = styles();
-    const { post } = props;
+  //  console.log('post ', post)
     return (
       <>
         <Paper square elevation={2} style={{ marginTop: 20, marginBottom: 20, }}>
@@ -16,7 +16,7 @@ function PostCard(props) {
               <Link
                 to={{
                   pathname: "/post",
-                  search: `?tilte=${post.title}`,
+                  search: `?title=${post.title}`,
                   hash: "#the-hash",
                   state: { Post: true },
                 }}
@@ -30,7 +30,7 @@ function PostCard(props) {
               <Link
                 to={{
                   pathname: "/post",
-                  search: `?tilte=${post.title}`,
+                  search: `?title=${post.title}`,
                   hash: "#the-hash",
                   state: { Post: true },
                 }}
@@ -78,7 +78,7 @@ function PostCard(props) {
                 component={Link}
                 to={{
                   pathname: "/post",
-                  search: `?tilte=${post.title}`,
+                  search: `?title=${post.title}`,
                   hash: "#the-hash",
                   state: { Post: true },
                 }}

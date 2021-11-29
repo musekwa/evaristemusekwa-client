@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from "react";
-import {
-  Container,
-  Typography,
-  Grid,
-  Paper,
-  Chip,
-  Box,
-  Divider,
-} from "@material-ui/core";
-//import { client } from "../../api";
-//import axios from "axios";
-//import { withStyles } from "@material-ui/styles";
+import { Typography, Grid, Paper, Chip, Box } from "@material-ui/core";
+
 import { useLocation, Link } from "react-router-dom";
 import styles from "./allposts.styles";
 import { allPosts } from "../../fakedata/fakedata.test";
 
+// posts come in an JS Object: each bject property
+// take as value any array of posts
+// The function merge all the posts into a unique array
+// parameter: An object
+// return value: an array
 const mergePostsCategories = (allPosts) => {
   let posts = [];
   for (let category in allPosts) {
@@ -23,17 +18,23 @@ const mergePostsCategories = (allPosts) => {
   return posts;
 };
 
+// Sort all the array of posts by the date of post creation
+// parameter: an array of posts
+// return value: a sorted array of posts
 const sortPostsByCreatedDate = (mergedPosts) => {
   return mergedPosts.sort(
     (post1, post2) => new Date(post1.createdAt) - new Date(post2.createdAt)
   );
 };
 
-const filterPostsByTag = (tag, posts=[]) => {
-   console.log(posts);
-   let count = 0;
+// Filter all the posts by their tags
+// parameters: a tag and an array of posts
+// return value: an array of filtered posts
+const filterPostsByTag = (tag, posts = []) => {
+  console.log(posts);
+  let count = 0;
   let filteredPosts = posts.filter((post) => {
-    console.log(++count)
+    console.log(++count);
     return post.tags?.includes(tag);
   });
 
@@ -52,13 +53,12 @@ function AllPosts() {
     let fetchedPosts = [];
     if (tag) {
       mergedPosts = filterPostsByTag(tag, mergedPosts).reverse();
-    } 
-      fetchedPosts = sortPostsByCreatedDate(mergedPosts).reverse();
-    
+    }
+    fetchedPosts = sortPostsByCreatedDate(mergedPosts).reverse();
 
-    // const sortedPosts = !tag ? fetchedPosts : taggedPosts;
     setPosts(fetchedPosts);
   }, [tag]);
+
   return (
     <div
       style={{
@@ -66,12 +66,31 @@ function AllPosts() {
         minHeight: "100vh",
       }}
     >
-      <Grid container direction="row">
-        <Grid xs={12} direction="column" spacing={3}>
-          <Typography variant="h4" align="center">
-            {tag? `Posts about '${tag.toLowerCase()}'`  : "All Posts"}
+      <Grid
+        container
+        direction="row"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {/* left side pane goes here */}
+        <Grid direction="column" spacing={2} className={classes.leftSide}>
+          <Box style={{ backgroundColor: "silver" }}>
+            <Typography>Search Pane</Typography>
+          </Box>
+        </Grid>
+        {/* main pane */}
+        <Grid md={6} direction="column" spacing={3}>
+          <Typography variant="h5" align="center">
+            {tag ? `Posts about '${tag.toLowerCase()}'` : "All Posts"}
+            <br />
           </Typography>
-
+          <Typography
+            variant="body2"
+            align="center"
+            color="textSecondary"
+          >{`(${posts.length} posts)`}</Typography>
           {posts &&
             posts.map((post, index) => {
               let flag = 0;
@@ -103,7 +122,7 @@ function AllPosts() {
                       </div>
                     </div>
                   ) : null}
-                  <Grid item centered className={classes.root}>
+                  <Grid item centered className={classes.item}>
                     <Paper elevation={2} className={classes.paper}>
                       <Link
                         to={{
@@ -161,19 +180,13 @@ function AllPosts() {
               );
             })}
         </Grid>
+        {/* right side pane goes here */}
+        <Grid direction="column" spacing={2} className={classes.rightSide}>
+          <Box style={{ backgroundColor: "silver" }}>
+            <Typography>Search Pane</Typography>
+          </Box>
+        </Grid>
       </Grid>
-
-      {/* <div
-        style={{
-          border: "1px solid",
-          width: "20%",
-          backgroundColor: "red",
-          position: "relative",
-          top: 10,
-        }}
-      >
-        <h1>Tags</h1>
-      </div> */}
     </div>
   );
 }

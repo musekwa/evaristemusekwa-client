@@ -1,10 +1,42 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const styles = makeStyles((theme) => ({
-  root: {
+  item: {
     color: "#0d5b49",
     display: "flex",
     justifyContent: "center",
+  },
+
+  leftSide: {
+    marginRight: "15px",
+    marginTop: "25px",
+    marginLeft: 0,
+    textAlign: "center",
+    border: "1px solid",
+    width: "20%",
+    [theme.breakpoints.down("md")]: {
+      width: "15%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "10%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+  },
+  rightSide: {
+    marginLeft: "15px",
+    marginTop: "25px",
+    marginRight: 0,
+    textAlign: "center",
+    border: "1px solid",
+    width: "20%",
+    [theme.breakpoints.down("md")]: {
+      width: "10%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
 
   allpostTitle: {
@@ -22,16 +54,16 @@ const styles = makeStyles((theme) => ({
   },
 
   dates: {
-    width: "50%",
-    [theme.breakpoints.down("md")]: {
-      width: "60%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "80%",
-    },
-    [theme.breakpoints.down("xs")]: {
-      width: "100%",
-    },
+    width: "100%",
+    // [theme.breakpoints.down("md")]: {
+    //   width: "100%",
+    // },
+    // [theme.breakpoints.down("sm")]: {
+    //   width: "100%",
+    // },
+    // [theme.breakpoints.down("xs")]: {
+    //   width: "100%",
+    // },
   },
 
   paper: {
@@ -39,16 +71,16 @@ const styles = makeStyles((theme) => ({
     marginTop: 10,
     marginBottom: 10,
     color: "#0d5b49",
-    width: "50%",
-    [theme.breakpoints.down("md")]: {
-      width: "60%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "80%",
-    },
-    [theme.breakpoints.down("xs")]: {
-      width: "100%",
-    },
+    width: "100%",
+    // [theme.breakpoints.down("md")]: {
+    //   width: "80%",
+    // },
+    // [theme.breakpoints.down("sm")]: {
+    //   width: "80%",
+    // },
+    // [theme.breakpoints.down("xs")]: {
+    //   width: "100%",
+    // },
   },
 
   chips: {

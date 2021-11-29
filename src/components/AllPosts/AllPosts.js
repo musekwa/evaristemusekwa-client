@@ -31,15 +31,21 @@ const sortPostsByCreatedDate = (mergedPosts) => {
 // parameters: a tag and an array of posts
 // return value: an array of filtered posts
 const filterPostsByTag = (tag, posts = []) => {
-  console.log(posts);
-  let count = 0;
   let filteredPosts = posts.filter((post) => {
-    console.log(++count);
     return post.tags?.includes(tag);
   });
-
   return filteredPosts;
 };
+
+// Get all the tags from all the posts
+// parameter: an array of all posts
+// return value: an array of all distinct tags
+// const getAlltags = (mergedPosts)=>{
+//   let tags = [];
+//   array.forEach(element => {
+    
+//   });
+// }
 
 function AllPosts() {
   const location = useLocation();
@@ -83,14 +89,15 @@ function AllPosts() {
         {/* main pane */}
         <Grid md={6} direction="column" spacing={3}>
           <Typography variant="h5" align="center">
-            {tag ? `Posts about '${tag.toLowerCase()}'` : "All Posts"}
+            {tag ? (
+              <span style={{ backgroundColor: "lightgreen", padding: "5px" }}>
+                "{tag.toLowerCase()}" is tagged in {`${posts.length} posts.`}
+              </span>
+            ) : (
+              "All Posts"
+            )}
             <br />
           </Typography>
-          <Typography
-            variant="body2"
-            align="center"
-            color="textSecondary"
-          >{`(${posts.length} posts)`}</Typography>
           {posts &&
             posts.map((post, index) => {
               let flag = 0;
@@ -183,7 +190,8 @@ function AllPosts() {
         {/* right side pane goes here */}
         <Grid direction="column" spacing={2} className={classes.rightSide}>
           <Box style={{ backgroundColor: "silver" }}>
-            <Typography>Search Pane</Typography>
+            <Typography>Search Tags</Typography>
+
           </Box>
         </Grid>
       </Grid>

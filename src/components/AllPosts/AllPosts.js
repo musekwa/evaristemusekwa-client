@@ -104,10 +104,15 @@ function AllPosts() {
         <Grid md={6} direction="column" spacing={3}>
           <Typography variant="h5" align="center">
             All Posts
-            {tag && (
+            {tag ? (
               <Typography color="textSecondary" style={{ padding: "5px" }}>
                 ("{tag.toLowerCase()}" is tagged in {`${posts.length}`}{" "}
                 {posts.length <= 1 ? "post)" : "posts)"}
+              </Typography>
+            ) : (
+              <Typography color="textSecondary" style={{ padding: "5px" }}>
+                ({`${posts.length}`}{" "}
+                {posts.length <= 1 ? "post)" : "posts from all categories)"}
               </Typography>
             )}
           </Typography>

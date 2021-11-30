@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Grid, Paper, Chip, Box } from "@material-ui/core";
+import { Typography, Grid, Paper, Chip, Box, TextField } from "@material-ui/core";
 
 import { useLocation, Link } from "react-router-dom";
 import styles from "./allposts.styles";
@@ -39,23 +39,37 @@ const filterPostsByTag = (tag, posts = []) => {
 
 // Get all the tags from all the posts
 // parameter: an array of all posts
-// return value: an array of all distinct tags
-// const getAlltags = (mergedPosts)=>{
-//   let tags = [];
-//   array.forEach(element => {
-    
-//   });
-// }
+// return value: a set of all distinct tags
+const getAllTags = (mergedPosts) => {
+  let tags = new Set();
+  mergedPosts.forEach((post) => {
+    for (let i = 0; i < post.tags.length; i++) {
+      if (!tags.has(post?.tags[i])) {
+        tags.add(post.tags[i]);
+      }
+    }
+    console.log("tags ", tags);
+  });
+
+  return tags;
+};
 
 function AllPosts() {
   const location = useLocation();
   const [posts, setPosts] = useState([]);
+  const [tags, setTags] = useState(new Set());
   const tag = new URLSearchParams(location.search).get("tag");
   let month = 0;
   const classes = styles();
 
+  // useEffect(()=>{
+
+  // })
+
   useEffect(() => {
     let mergedPosts = mergePostsCategories(allPosts);
+    let tags = getAllTags(mergedPosts);
+    setTags(tags);
     let fetchedPosts = [];
     if (tag) {
       mergedPosts = filterPostsByTag(tag, mergedPosts).reverse();
@@ -72,32 +86,32 @@ function AllPosts() {
         minHeight: "100vh",
       }}
     >
-      <Grid
-        container
-        direction="row"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <Grid className={classes.gridRoot} direction="row">
         {/* left side pane goes here */}
         <Grid direction="column" spacing={2} className={classes.leftSide}>
-          <Box style={{ backgroundColor: "silver" }}>
-            <Typography>Search Pane</Typography>
-          </Box>
+          <Paper style={{ height: "60vh" }}>
+            <Typography
+              variant="h6"
+              color="#0d5b49"
+              style={{ backgroundColor: "silver", marginBottom: "10px" }}
+            >
+              Search Pane
+            </Typography>
+            <TextField />
+          </Paper>
         </Grid>
         {/* main pane */}
         <Grid md={6} direction="column" spacing={3}>
           <Typography variant="h5" align="center">
-            {tag ? (
-              <span style={{ backgroundColor: "lightgreen", padding: "5px" }}>
-                "{tag.toLowerCase()}" is tagged in {`${posts.length} posts.`}
-              </span>
-            ) : (
-              "All Posts"
+            All Posts
+            {tag && (
+              <Typography color="textSecondary" style={{ padding: "5px" }}>
+                ("{tag.toLowerCase()}" is tagged in {`${posts.length}`}{" "}
+                {posts.length <= 1 ? "post)" : "posts)"}
+              </Typography>
             )}
-            <br />
           </Typography>
+          <br />
           {posts &&
             posts.map((post, index) => {
               let flag = 0;
@@ -130,7 +144,7 @@ function AllPosts() {
                     </div>
                   ) : null}
                   <Grid item centered className={classes.item}>
-                    <Paper elevation={2} className={classes.paper}>
+                    <Paper elevation={2} className={classes.itemPaper}>
                       <Link
                         to={{
                           pathname: "/post",
@@ -189,10 +203,35 @@ function AllPosts() {
         </Grid>
         {/* right side pane goes here */}
         <Grid direction="column" spacing={2} className={classes.rightSide}>
-          <Box style={{ backgroundColor: "silver" }}>
-            <Typography>Search Tags</Typography>
-
-          </Box>
+          <Paper style={{ minHeight: "60vh" }}>
+            <Typography
+              variant="h6"
+              color="#0d5b49"
+              style={{ backgroundColor: "silver", marginBottom: "10px" }}
+            >
+              Search by tags
+            </Typography>
+            <Grid container spacing={1} style={{ padding: "10px" }}>
+              {[...tags].map((tag) => (
+                <Grid item>
+                  <Chip
+                    size="large"
+                    label={`${tag}`}
+                    component={Link}
+                    to={{
+                      pathname: "/all-posts",
+                      search: `?tag=${tag}`,
+                      hash: "#the-hash",
+                      state: { AllPosts: true },
+                    }}
+                    clickable
+                    style={{ color: "#0d5b49", margin: "1px" }}
+                    className="chips"
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </Paper>
         </Grid>
       </Grid>
     </div>

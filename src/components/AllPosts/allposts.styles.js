@@ -1,6 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const styles = makeStyles((theme) => ({
+  gridRoot: {
+    // flexGrow: 1,
+    display: "flex",
+    justifyContent: "center",
+  },
   item: {
     color: "#0d5b49",
     display: "flex",
@@ -12,13 +17,13 @@ const styles = makeStyles((theme) => ({
     marginTop: "25px",
     marginLeft: 0,
     textAlign: "center",
-    border: "1px solid",
-    width: "20%",
+    width: "25%",
+
     [theme.breakpoints.down("md")]: {
-      width: "15%",
+      width: "20%",
     },
     [theme.breakpoints.down("sm")]: {
-      width: "10%",
+      width: "15%",
     },
     [theme.breakpoints.down("xs")]: {
       display: "none",
@@ -29,10 +34,15 @@ const styles = makeStyles((theme) => ({
     marginTop: "25px",
     marginRight: 0,
     textAlign: "center",
-    border: "1px solid",
-    width: "20%",
+    display: "flex",
+    justifySelf: "right",
+    // position: "fixed",
+    // right: 0,
+
+    // border: "1px solid",
+    width: "25%",
     [theme.breakpoints.down("md")]: {
-      width: "10%",
+      width: "20%",
     },
     [theme.breakpoints.down("sm")]: {
       display: "none",
@@ -66,7 +76,7 @@ const styles = makeStyles((theme) => ({
     // },
   },
 
-  paper: {
+  itemPaper: {
     padding: 15,
     marginTop: 10,
     marginBottom: 10,

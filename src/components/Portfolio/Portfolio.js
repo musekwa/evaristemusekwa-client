@@ -11,7 +11,10 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const projectCategories = [
   {
-    category: "MERN Projects",
+    category: "MERN",
+    description: `Short description Short description Short description 
+                  Shortdescription Short description Short description Short
+                    description Short description`,
     projects: [
       {
         title: "memories project",
@@ -44,7 +47,10 @@ const projectCategories = [
   },
 
   {
-    category: "React Projects",
+    category: "React",
+    description: `Short description Short description Short description 
+                  Shortdescription Short description Short description Short
+                    description Short description`,
     projects: [
       {
         title: "memories project",
@@ -76,7 +82,10 @@ const projectCategories = [
     ],
   },
   {
-    category: "MEAN Projects",
+    category: "MEAN",
+    description: `Short description Short description Short description 
+                  Shortdescription Short description Short description Short
+                    description Short description`,
     projects: [
       {
         title: "memories project",
@@ -115,19 +124,19 @@ function Portfolio() {
       <Grid
         container
         spacing={2}
-        style={{ display: "flex", justifyContent: "center" }}
+         direction="column"
+        style={{ display: "flex", justifyContent: "center",  }}
       >
         {projectCategories.map((category) => (
           <Grid
             item
             xs={12}
-            sm={10}
-            md={8}
-            lg={7}
+            sm={8}
+            md={7}
+            lg={6}
             style={{
-              //      minWidth: "60%",
               minHeight: "20vh",
-              // backgroundColor: "gray",
+              alignSelf: "center",
             }}
           >
             <Accordion
@@ -136,16 +145,14 @@ function Portfolio() {
             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
-                // aria-label="Expand"
                 aria-controls="panel1a-content"
                 id="pane1a-header"
               >
                 <Typography variant="h5">
-                  {category.category}
+                  {category.category}{": "}
+                  <span>{` ${category.projects.length} Projects`}</span>
                   <Typography variant="body2" color="textSecondary">
-                    Short description Short description Short description Short
-                    description Short description Short description Short
-                    description Short description
+                  {category.description}
                   </Typography>
                 </Typography>
               </AccordionSummary>

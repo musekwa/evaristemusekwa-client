@@ -9,6 +9,9 @@ import {
   Paper,
   MobileStepper,
   Button,
+  Container,
+  Chip,
+  Divider,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -31,6 +34,7 @@ const projectCategories = [
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
         link: "https://externallink.com",
+        createdAt: "Jan 21, 2021",
       },
       {
         title: "social network project",
@@ -40,6 +44,7 @@ const projectCategories = [
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
         link: "https://externallink.com",
+        createdAt: "Jan 21, 2021",
       },
       {
         title: "e-commerce project",
@@ -49,6 +54,7 @@ const projectCategories = [
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
         link: "https://externallink.com",
+        createdAt: "Jan 21, 2021",
       },
     ],
   },
@@ -67,6 +73,7 @@ const projectCategories = [
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
         link: "https://externallink.com",
+        createdAt: "Jan 21, 2021",
       },
       {
         title: "social network project",
@@ -76,6 +83,7 @@ const projectCategories = [
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
         link: "https://externallink.com",
+        createdAt: "Jan 21, 2021",
       },
       {
         title: "e-commerce project",
@@ -85,6 +93,7 @@ const projectCategories = [
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
         link: "https://externallink.com",
+        createdAt: "Jan 21, 2021",
       },
     ],
   },
@@ -102,6 +111,7 @@ const projectCategories = [
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
         link: "https://externallink.com",
+        createdAt: "Jan 21, 2021",
       },
       {
         title: "social network project",
@@ -111,6 +121,7 @@ const projectCategories = [
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
         link: "https://externallink.com",
+        createdAt: "Jan 21, 2021",
       },
       {
         title: "e-commerce project",
@@ -120,6 +131,7 @@ const projectCategories = [
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
         link: "https://externallink.com",
+        createdAt: "Jan 21, 2021",
       },
     ],
   },
@@ -179,23 +191,52 @@ function Portfolio() {
                 style={{ display: "flex", justifyContent: "center" }}
               >
                 <div style={{ maxWidth: "100%", flexGrow: 1 }}>
+                  <Divider style={{  }} />
                   <Paper
                     style={{
                       display: "flex",
                       height: 100,
-                      padding: "10px",
-                      backgroundColor: "cyan",
+                      // backgroundColor: "dimgray",
                     }}
                     square
                     elevation={0}
                   >
-                    <Typography>
-                      {category.projects[activeStep].title}
+                    <Container component="div">
+                      <Typography>
+                        {category.projects[activeStep].title}
 
-                      <Typography variant="body2" color="textSecondary">
-                        {category.projects[activeStep].description}
+                        <Typography variant="body2" color="textSecondary">
+                          {category.projects[activeStep].description}
+                        </Typography>
                       </Typography>
-                    </Typography>
+
+                      <Grid container style={{ paddingTop: "10px", }} >
+                        <Grid item xs={9}>
+                          {category.projects[activeStep].tools.map((tool) => (
+                            <Chip
+                              size="small"
+                              label={`${tool}`}
+                              style={{ marginLeft: "2px", }}
+                              // component={Link}
+                              // to={{
+                              //   pathname: "/all-posts",
+                              //   search: `?tag=${tag}`,
+                              //   hash: "#the-hash",
+                              //   state: { AllPosts: true },
+                              // }}
+                              // clickable
+                              // style={{ color: "inherit" }}
+                              // className="chipItem"
+                            />
+                          ))}
+                        </Grid>
+                        <Grid item xs={3}>
+                          <Typography variant="body2" color="textSecondary">
+                            {category.projects[activeStep].createdAt}
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Container>
                   </Paper>
                   <img
                     style={{

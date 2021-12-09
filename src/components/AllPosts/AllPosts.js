@@ -194,7 +194,7 @@ function AllPosts() {
                         </Grid>
                         <Grid item>
                           <Box
-                            sx={{ fontStyle: "italic", fontSize: 14 }}
+                            sx={{ fontStyle: "italic", fontSize: 12 }}
                             align="right"
                           >
                             {post.createdAt}

@@ -1,4 +1,4 @@
-import React, { useState, } from "react";
+import React, { useState } from "react";
 import {
   FormControlLabel,
   Grid,
@@ -12,12 +12,14 @@ import {
   Container,
   Chip,
   Divider,
+  Box,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import GitHubIcon from "@material-ui/icons/GitHub";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
-
+import LaunchIcon from "@material-ui/icons/Launch";
 
 const projectCategories = [
   {
@@ -29,7 +31,8 @@ const projectCategories = [
       {
         title: "memories-1 project",
         type: "full-stack",
-        description: "This is a memory project",
+        description:
+          "This is a memory project This is a memory projectThis is a memory projectThis is a memory project",
         tools: ["javascript", "react", "mongoDB"],
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
@@ -39,7 +42,8 @@ const projectCategories = [
       {
         title: "social network project",
         type: "full-stack",
-        description: "This is a memory project",
+        description:
+          "This is a memory project This is a memory projectThis is a memory projectThis is a memory project",
         tools: ["javascript", "react", "mongoDB"],
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
@@ -49,7 +53,8 @@ const projectCategories = [
       {
         title: "e-commerce project",
         type: "full-stack",
-        description: "This is a memory project",
+        description:
+          "This is a memory project This is a memory projectThis is a memory projectThis is a memory project",
         tools: ["javascript", "react", "mongoDB"],
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
@@ -68,7 +73,8 @@ const projectCategories = [
       {
         title: "memories-2 project",
         type: "full-stack",
-        description: "This is a memory project",
+        description:
+          "This is a memory project This is a memory projectThis is a memory projectThis is a memory project",
         tools: ["javascript", "react", "mongoDB"],
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
@@ -78,7 +84,8 @@ const projectCategories = [
       {
         title: "social network project",
         type: "full-stack",
-        description: "This is a memory project",
+        description:
+          "This is a memory project This is a memory projectThis is a memory projectThis is a memory project",
         tools: ["javascript", "react", "mongoDB"],
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
@@ -88,7 +95,8 @@ const projectCategories = [
       {
         title: "e-commerce project",
         type: "full-stack",
-        description: "This is a memory project",
+        description:
+          "This is a memory project This is a memory projectThis is a memory projectThis is a memory project",
         tools: ["javascript", "react", "mongoDB"],
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
@@ -106,7 +114,8 @@ const projectCategories = [
       {
         title: "memories-3 project",
         type: "full-stack",
-        description: "This is a memory project",
+        description:
+          "This is a memory project This is a memory projectThis is a memory projectThis is a memory project",
         tools: ["javascript", "react", "mongoDB"],
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
@@ -116,7 +125,8 @@ const projectCategories = [
       {
         title: "social network project",
         type: "full-stack",
-        description: "This is a memory project",
+        description:
+          "This is a memory project This is a memory projectThis is a memory projectThis is a memory project",
         tools: ["javascript", "react", "mongoDB"],
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
@@ -126,7 +136,8 @@ const projectCategories = [
       {
         title: "e-commerce project",
         type: "full-stack",
-        description: "This is a memory project",
+        description:
+          "This is a memory project This is a memory projectThis is a memory projectThis is a memory project",
         tools: ["javascript", "react", "mongoDB"],
         image: "http://imageurl.com",
         sourceCode: "https://github.com/musekwa",
@@ -136,20 +147,25 @@ const projectCategories = [
     ],
   },
 ];
+
 function Portfolio() {
   const [activeStep, setActiveStep] = useState(0);
   const theme = useTheme();
-  
-  const handleNext = ()=>{
-    setActiveStep((previActiveStep) => previActiveStep + 1);
-  }
 
-  const handleBack = ()=>{
+  const openNewWindowTab = (url) => {
+    window.open(url);
+  };
+
+  const handleNext = () => {
+    setActiveStep((previActiveStep) => previActiveStep + 1);
+  };
+
+  const handleBack = () => {
     setActiveStep((previActiveStep) => previActiveStep - 1);
-  }
+  };
 
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div style={{ minHeight: "80vh" }}>
       <h1 style={{ textAlign: "center" }}>Portfolio</h1>
       <Grid
         container
@@ -157,7 +173,7 @@ function Portfolio() {
         direction="column"
         style={{ display: "flex", justifyContent: "center" }}
       >
-        {projectCategories.map((category) => (
+        {projectCategories.map((category, index) => (
           <Grid
             item
             xs={12}
@@ -191,7 +207,7 @@ function Portfolio() {
                 style={{ display: "flex", justifyContent: "center" }}
               >
                 <div style={{ maxWidth: "100%", flexGrow: 1 }}>
-                  <Divider style={{  }} />
+                  <Divider style={{}} />
                   <Paper
                     style={{
                       display: "flex",
@@ -210,13 +226,13 @@ function Portfolio() {
                         </Typography>
                       </Typography>
 
-                      <Grid container style={{ paddingTop: "10px", }} >
+                      <Grid container style={{ paddingTop: "10px" }}>
                         <Grid item xs={9}>
                           {category.projects[activeStep].tools.map((tool) => (
                             <Chip
                               size="small"
                               label={`${tool}`}
-                              style={{ marginLeft: "2px", }}
+                              style={{ marginLeft: "2px" }}
                               // component={Link}
                               // to={{
                               //   pathname: "/all-posts",
@@ -231,17 +247,23 @@ function Portfolio() {
                           ))}
                         </Grid>
                         <Grid item xs={3}>
-                          <Typography variant="body2" color="textSecondary">
+                          <Box
+                            sx={{ fontStyle: "italic", fontSize: 12 }}
+                            align="right"
+                          >
                             {category.projects[activeStep].createdAt}
-                          </Typography>
+                          </Box>
+                          {/* <Typography variant="body2" color="textSecondary">
+                            
+                          </Typography> */}
                         </Grid>
                       </Grid>
                     </Container>
                   </Paper>
                   <img
                     style={{
-                      maxWidth: 400,
-                      height: 255,
+                      maxWidth: 350,
+                      height: 180,
                       overflow: "hidden",
                       display: "block",
                       width: "100%",
@@ -249,6 +271,42 @@ function Portfolio() {
                     src="js2.jpg"
                     alt={category.projects[activeStep].title}
                   />
+                  <Grid container>
+                    <Grid item xs={6} style={{ textAlign: "left" }}>
+                      <Button
+                        variant="text"
+                        size="small"
+                        // className={classes.externalLinksButton}
+                        onClick={() =>
+                          openNewWindowTab("https://github.com/musekwa")
+                        }
+                        style={{ textTransform: "capitalize" }}
+                      >
+                        <GitHubIcon
+                          fontSize="small"
+                          style={{ margin: "10px" }}
+                        />
+                        Visit code source
+                      </Button>
+                    </Grid>
+                    <Grid item xs={6} style={{ textAlign: "right" }}>
+                      <Button
+                        variant="text"
+                        size="small"
+                        // className={classes.externalLinksButton}
+                        onClick={() =>
+                          openNewWindowTab("https://github.com/musekwa")
+                        }
+                        style={{ textTransform: "capitalize" }}
+                      >
+                        Try it youself
+                        <LaunchIcon
+                          fontSize="small"
+                          style={{ margin: "10px" }}
+                        />
+                      </Button>
+                    </Grid>
+                  </Grid>
                   <MobileStepper
                     steps={category.projects.length}
                     position="static"

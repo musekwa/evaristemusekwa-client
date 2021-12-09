@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, } from "react";
 import {
   FormControlLabel,
   Grid,
@@ -6,8 +6,15 @@ import {
   AccordionSummary,
   Typography,
   AccordionDetails,
+  Paper,
+  MobileStepper,
+  Button,
 } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
+import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+
 
 const projectCategories = [
   {
@@ -17,7 +24,7 @@ const projectCategories = [
                     description Short description`,
     projects: [
       {
-        title: "memories project",
+        title: "memories-1 project",
         type: "full-stack",
         description: "This is a memory project",
         tools: ["javascript", "react", "mongoDB"],
@@ -53,7 +60,7 @@ const projectCategories = [
                     description Short description`,
     projects: [
       {
-        title: "memories project",
+        title: "memories-2 project",
         type: "full-stack",
         description: "This is a memory project",
         tools: ["javascript", "react", "mongoDB"],
@@ -88,7 +95,7 @@ const projectCategories = [
                     description Short description`,
     projects: [
       {
-        title: "memories project",
+        title: "memories-3 project",
         type: "full-stack",
         description: "This is a memory project",
         tools: ["javascript", "react", "mongoDB"],
@@ -118,14 +125,25 @@ const projectCategories = [
   },
 ];
 function Portfolio() {
+  const [activeStep, setActiveStep] = useState(0);
+  const theme = useTheme();
+  
+  const handleNext = ()=>{
+    setActiveStep((previActiveStep) => previActiveStep + 1);
+  }
+
+  const handleBack = ()=>{
+    setActiveStep((previActiveStep) => previActiveStep - 1);
+  }
+
   return (
     <div style={{ minHeight: "100vh" }}>
       <h1 style={{ textAlign: "center" }}>Portfolio</h1>
       <Grid
         container
         spacing={2}
-         direction="column"
-        style={{ display: "flex", justifyContent: "center",  }}
+        direction="column"
+        style={{ display: "flex", justifyContent: "center" }}
       >
         {projectCategories.map((category) => (
           <Grid
@@ -149,18 +167,82 @@ function Portfolio() {
                 id="pane1a-header"
               >
                 <Typography variant="h5">
-                  {category.category}{": "}
+                  {category.category}
+                  {": "}
                   <span>{` ${category.projects.length} Projects`}</span>
                   <Typography variant="body2" color="textSecondary">
-                  {category.description}
+                    {category.description}
                   </Typography>
                 </Typography>
               </AccordionSummary>
-              <AccordionDetails>
-                <Typography color="textSecondary">
-                  The click event of the nested action will propagate up and
-                  expand the accordion unless you explicitly stop it.
-                </Typography>
+              <AccordionDetails
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <div style={{ maxWidth: "100%", flexGrow: 1 }}>
+                  <Paper
+                    style={{
+                      display: "flex",
+                      height: 100,
+                      padding: "10px",
+                      backgroundColor: "cyan",
+                    }}
+                    square
+                    elevation={0}
+                  >
+                    <Typography>
+                      {category.projects[activeStep].title}
+
+                      <Typography variant="body2" color="textSecondary">
+                        {category.projects[activeStep].description}
+                      </Typography>
+                    </Typography>
+                  </Paper>
+                  <img
+                    style={{
+                      maxWidth: 400,
+                      height: 255,
+                      overflow: "hidden",
+                      display: "block",
+                      width: "100%",
+                    }}
+                    src="js2.jpg"
+                    alt={category.projects[activeStep].title}
+                  />
+                  <MobileStepper
+                    steps={category.projects.length}
+                    position="static"
+                    variant="text"
+                    activeStep={activeStep}
+                    nextButton={
+                      <Button
+                        size="small"
+                        onClick={handleNext}
+                        disabled={activeStep === category.projects.length - 1}
+                      >
+                        {theme.direction === "rtl" ? (
+                          <KeyboardArrowLeft />
+                        ) : (
+                          <KeyboardArrowRight />
+                        )}
+                        Next
+                      </Button>
+                    }
+                    backButton={
+                      <Button
+                        size="small"
+                        onClick={handleBack}
+                        disabled={activeStep === 0}
+                      >
+                        {theme.direction === "rtl" ? (
+                          <KeyboardArrowRight />
+                        ) : (
+                          <KeyboardArrowLeft />
+                        )}
+                        Back
+                      </Button>
+                    }
+                  />
+                </div>
               </AccordionDetails>
             </Accordion>
           </Grid>

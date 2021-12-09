@@ -17,8 +17,8 @@ function Footer() {
   return (
     <footer className={classes.root}>
       <Container maxWidth="lg">
-        <Grid container spacing={5} className={classes.footer}>
-          <Grid item xs={12} sm={8}>
+        <Grid container spacing={2} className={classes.footer}>
+          <Grid item xs={12} sm={12} md={8}>
             <Grid
               container
               spacing={2}
@@ -84,7 +84,7 @@ function Footer() {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={12} md={4}>
             <Typography variant="body1" align="center" gutterBottom>
               More About Me ...
             </Typography>

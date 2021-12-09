@@ -43,7 +43,7 @@ function HomePage() {
   }, [isMobile, value]);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center", minHeight: "100vh" }}>
       <Grid
         container
         xs={12}

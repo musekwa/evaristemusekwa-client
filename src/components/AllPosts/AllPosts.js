@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Grid, Paper, Chip, Box, TextField } from "@material-ui/core";
+import { Typography, Grid, Paper, Chip, Box, TextField, Divider } from "@material-ui/core";
 
 import { useLocation, Link } from "react-router-dom";
 import styles from "./allposts.styles";
@@ -93,10 +93,11 @@ function AllPosts() {
             <Typography
               variant="h6"
               color="#0d5b49"
-              style={{ backgroundColor: "silver", marginBottom: "10px" }}
+              style={{ marginBottom: "10px" }}
             >
               Search Pane
             </Typography>
+            <Divider />
             <TextField />
           </Paper>
         </Grid>
@@ -212,10 +213,11 @@ function AllPosts() {
             <Typography
               variant="h6"
               color="#0d5b49"
-              style={{ backgroundColor: "silver", marginBottom: "10px" }}
+              style={{ marginBottom: "10px" }}
             >
               Search by tags
             </Typography>
+            <Divider />
             <Grid container spacing={1} style={{ padding: "10px" }}>
               {[...tags].map((tag) => (
                 <Grid item>

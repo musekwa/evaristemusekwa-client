@@ -7,7 +7,7 @@ import TabCategory from "../../core/Tab/TabCategory";
 import TopThreePosts from "../../core/TopThreePosts/TopThreePosts";
 //import PostCard from "../PostCard/PostCard";
 import PostCardsList from "../ListPostCards/PostCardsList";
-import ReactPaginate from "react-paginate";
+// import ReactPaginate from "react-paginate";
 //import PaginatedPostCards from "../../components/ListPostCards/PaginatedPostCards";
 //import PaginatedPostCards from "../ListPostCards/PaginatedPostCards";
 
@@ -17,7 +17,7 @@ function HomePage() {
   const [value, setValue] = useState(0);
   const [category, setCategory] = useState([]);
   const [threeMostPopularPosts, setThreeMostPopularPosts] = useState([]);
-   const [page, setPageNumber] = useState(0);
+  //  const [page, setPageNumber] = useState(0);
   const classes = styles();
 
   const handleCategory = (event, value) => {

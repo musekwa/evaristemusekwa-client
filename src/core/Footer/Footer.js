@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./footer.styles";
-import { Button, Container, Grid, Typography, TextField } from "@material-ui/core";
+import { Button, Container, Grid, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import FacebookIcon from "@material-ui/icons/Facebook";
+// import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 

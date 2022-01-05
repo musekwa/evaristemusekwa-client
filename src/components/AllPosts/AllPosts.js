@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Grid, Paper, Chip, Box, TextField, Divider } from "@material-ui/core";
+import {
+  Typography,
+  Grid,
+  Paper,
+  Chip,
+  Box,
+  TextField,
+  Divider,
+} from "@material-ui/core";
 
 import { useLocation, Link } from "react-router-dom";
 import styles from "./allposts.styles";
@@ -89,17 +97,19 @@ function AllPosts() {
       <Grid className={classes.gridRoot} direction="row">
         {/* left side pane goes here */}
         <Grid direction="column" spacing={2} className={classes.leftSide}>
-          <Paper style={{ height: "60vh" }}>
-            <Typography
-              variant="h6"
-              color="#0d5b49"
-              style={{ marginBottom: "10px" }}
-            >
-              Search Pane
-            </Typography>
-            <Divider />
-            <TextField />
-          </Paper>
+          {false && (
+            <Paper style={{ height: "60vh" }}>
+              <Typography
+                variant="h6"
+                color="#0d5b49"
+                style={{ marginBottom: "10px" }}
+              >
+                Search Pane
+              </Typography>
+              <Divider />
+              <TextField />
+            </Paper>
+          )}
         </Grid>
         {/* main pane */}
         <Grid md={6} direction="column" spacing={3}>

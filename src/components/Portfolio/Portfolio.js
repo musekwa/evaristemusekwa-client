@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  FormControlLabel,
+  // FormControlLabel,
   Grid,
   Accordion,
   AccordionSummary,
@@ -147,9 +147,16 @@ const projectCategories = [
     ],
   },
 ];
+const NumberOfProjectsCategories = projectCategories.length;
+const initialState = Array(NumberOfProjectsCategories).fill(0);
+
+console.log('initial state', initialState)
 
 function Portfolio() {
   const [activeStep, setActiveStep] = useState(0);
+  // const [activeReactStep, setActiveReactStep] = useState(0);
+    // const [activeMernStep, setActiveMernStep] = useState(0);
+      // const [activeMeanStep, setActiveMeanStep] = useState(0);
   const theme = useTheme();
 
   const openNewWindowTab = (url) => {

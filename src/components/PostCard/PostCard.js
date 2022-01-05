@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Container, Paper, Typography, Chip,  } from '@material-ui/core'
+import { Container, Paper, Typography, Chip,  } from '@material-ui/core'
 import { Link } from 'react-router-dom';
 import styles from './postcard.styles.js'
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";

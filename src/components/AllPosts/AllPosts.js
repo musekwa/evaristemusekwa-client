@@ -18,19 +18,19 @@ import { allPosts } from "../../fakedata/fakedata.test";
 // The function merge all the posts into a unique array
 // parameter: An object
 // return value: an array
-const mergePostsCategories = (allPosts) => {
-  let posts = [];
-  for (let category in allPosts) {
-    posts = posts.concat(allPosts[category]);
-  }
-  return posts;
-};
+// const mergePostsCategories = (allPosts) => {
+//   let posts = [];
+//   for (let category in allPosts) {
+//     posts = posts.concat(allPosts[category]);
+//   }
+//   return posts;
+// };
 
 // Sort all the array of posts by the date of post creation
 // parameter: an array of posts
 // return value: a sorted array of posts
-const sortPostsByCreatedDate = (mergedPosts) => {
-  return mergedPosts.sort(
+const sortPostsByCreatedDate = (allPosts) => {
+  return allPosts.sort(
     (post1, post2) => new Date(post1.createdAt) - new Date(post2.createdAt)
   );
 };
@@ -75,16 +75,16 @@ function AllPosts() {
   // })
 
   useEffect(() => {
-    let mergedPosts = mergePostsCategories(allPosts);
+    let mergedPosts = allPosts  //mergePostsCategories(allPosts);
     let tags = getAllTags(mergedPosts);
     setTags(tags);
-    let fetchedPosts = [];
+    let reversedSortedPosts = [];
     if (tag) {
       mergedPosts = filterPostsByTag(tag, mergedPosts).reverse();
     }
-    fetchedPosts = sortPostsByCreatedDate(mergedPosts).reverse();
+    reversedSortedPosts = sortPostsByCreatedDate(mergedPosts).reverse();
 
-    setPosts(fetchedPosts);
+    setPosts(reversedSortedPosts);
   }, [tag]);
 
   return (
@@ -101,7 +101,7 @@ function AllPosts() {
             <Paper style={{ height: "60vh" }}>
               <Typography
                 variant="h6"
-                color="#0d5b49"
+                color="#444"
                 style={{ marginBottom: "10px" }}
               >
                 Search Pane
@@ -164,7 +164,7 @@ function AllPosts() {
                       <Link
                         to={{
                           pathname: "/post",
-                          search: `?title=${post.title}`,
+                          search: `?title=${post.title}&category=${post.category}`,
                           hash: "#hash-title",
                           state: { Post: true },
                         }}
@@ -194,8 +194,7 @@ function AllPosts() {
                                       state: { AllPosts: true },
                                     }}
                                     clickable
-                                    style={{ color: "inherit" }}
-                                    className="chips"
+                                    style={{ marginRight: "3px", }}
                                   />
                                 </span>
                               );
@@ -222,7 +221,7 @@ function AllPosts() {
           <Paper style={{ minHeight: "60vh" }}>
             <Typography
               variant="h6"
-              color="#0d5b49"
+              color="#444"
               style={{ marginBottom: "10px" }}
             >
               Search by tags
@@ -242,8 +241,7 @@ function AllPosts() {
                       state: { AllPosts: true },
                     }}
                     clickable
-                    style={{ color: "#0d5b49", margin: "1px" }}
-                    className="chips"
+                    style={{ color: "#444", margin: "2px" }}
                   />
                 </Grid>
               ))}

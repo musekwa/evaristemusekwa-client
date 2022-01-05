@@ -3,9 +3,9 @@ import React from 'react'
 import { Paper, Tabs, Tab } from '@material-ui/core'
 import styles from './tab.styles'
 
-function TabCategory(props) {
+function TabCategory({ handleCategory, isMobile, value }) {
   const classes = styles();
-    const { handleCategory, isMobile, value} = props;
+  
     return (
       <Paper square >
         <Tabs

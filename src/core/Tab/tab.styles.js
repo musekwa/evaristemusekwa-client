@@ -15,12 +15,12 @@ const styles = makeStyles((theme) => ({
 //     },
 //   },
   tabsRoot: {
-    textColor: "#0d5b49",
+    textColor: "#444",
     backgroundColor: "#eeeeee",
     [theme.breakpoints.down("md")]: {},
   },
   tabsIndicator: {
-    backgroundColor: "#0d5b49",
+    backgroundColor: "#444",
   },
   tabRoot: {
     textTransform: "initial",
@@ -40,15 +40,15 @@ const styles = makeStyles((theme) => ({
       '"Segoe UI Symbol"',
     ].join(","),
     "&:hover": {
-      color: "#0d5b49",
+      color: "#444",
       opacity: 1,
     },
     "&$tabSelected": {
-      color: "#0d5b49",
+      color: "#444",
       fontWeight: theme.typography.fontWeightMedium,
     },
     "&:focus": {
-      color: "#0d5b49",
+      color: "#444",
     },
 
     [theme.breakpoints.down("sm")]: {

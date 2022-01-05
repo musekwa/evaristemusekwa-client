@@ -64,7 +64,7 @@ const styles = makeStyles((theme) => ({
     },
   },
   popularItem: {
-    color: "#0d5b49",
+    color: "#444",
   },
   tabSelected: {},
   typography: {
@@ -73,7 +73,7 @@ const styles = makeStyles((theme) => ({
 
   chips: {
     display: "flex",
-    color: "#0d5b49",
+    color: "#444",
     flexWrap: "wrap",
     "& > *": {
       marginRight: theme.spacing(2),

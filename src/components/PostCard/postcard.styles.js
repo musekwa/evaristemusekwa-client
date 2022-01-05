@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const styles = makeStyles((theme) => ({
   root: {
     width: "45%",
-    color: "#0d5b49",
+    color: "#444",
     [theme.breakpoints.down("md")]: {
       width: "60%",
     },
@@ -17,7 +17,7 @@ const styles = makeStyles((theme) => ({
   },
   chips: {
     display: "flex",
-    color: "#0d5b49",
+    color: "#444",
     flexWrap: "wrap",
     "& > *": {
       marginRight: theme.spacing(2),

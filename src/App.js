@@ -33,7 +33,7 @@ function App() {
         <Route exact path="/all-posts" element={<AllPosts />}></Route>
         {/* <Route exact path="/filtered-posts" element={<AllPosts />}></Route> */}
         <Route element={<Navigate to="/about-me" />} />
-        <Route element={<Navigate to="/about-me" />} />
+        {/* <Route element={<Navigate to="/about-me" />} /> */}
       </Routes>
       <Footer />
     </>

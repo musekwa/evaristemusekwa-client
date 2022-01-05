@@ -7,7 +7,7 @@ const styles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   item: {
-    color: "#0d5b49",
+    color: "#444",
     display: "flex",
     justifyContent: "center",
   },
@@ -80,7 +80,7 @@ const styles = makeStyles((theme) => ({
     padding: 15,
     marginTop: 10,
     marginBottom: 10,
-    color: "#0d5b49",
+    color: "#444",
     width: "100%",
     // [theme.breakpoints.down("md")]: {
     //   width: "80%",
@@ -95,7 +95,7 @@ const styles = makeStyles((theme) => ({
 
   chips: {
     display: "flex",
-    color: "#0d5b49",
+    color: "#444",
     flexWrap: "wrap",
     // margin: theme.spacing(4),
     "& > *": {

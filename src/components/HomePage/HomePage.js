@@ -2,37 +2,38 @@ import React, { useState, useEffect } from "react";
 import { Divider, Grid } from "@material-ui/core";
 import "./homepage.css";
 import styles from "./homepage.styles";
-import { allPosts } from "../../fakedata/fakedata.test";
+import { allPosts, categories } from "../../fakedata/fakedata.test";
 import TabCategory from "../../core/Tab/TabCategory";
-import TopThreePosts from "../../core/TopThreePosts/TopThreePosts";
-//import PostCard from "../PostCard/PostCard";
+import TopPosts from "../../core/TopPosts/TopPosts"
 import PostCardsList from "../ListPostCards/PostCardsList";
-// import ReactPaginate from "react-paginate";
-//import PaginatedPostCards from "../../components/ListPostCards/PaginatedPostCards";
-//import PaginatedPostCards from "../ListPostCards/PaginatedPostCards";
+
 
 // Home page component
 function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
   const [value, setValue] = useState(0);
-  const [category, setCategory] = useState([]);
-  const [threeMostPopularPosts, setThreeMostPopularPosts] = useState([]);
+  const [category, setCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState([]);
   //  const [page, setPageNumber] = useState(0);
   const classes = styles();
+
+  const getOneCategoryPosts = (category) => {
+    const oneCategoryPosts = allPosts.filter(
+      (post) => post.category === category
+    );
+    setSelectedCategory(oneCategoryPosts);
+  };
+
 
   const handleCategory = (event, value) => {
     setValue(value);
     const category =
-      value === 0
-        ? allPosts["javascript"]
-        : value === 1
-        ? allPosts["algorithms"]
-        : allPosts["uncategorized"];
+      value === 0 ? "javascript" : value === 1 ? "algorithms" : "uncategorized";
     setCategory(category);
 
     // You need to find parameters that determine
     // the selection of most popular posts
-    setThreeMostPopularPosts(category.slice(0, 3));
+    getOneCategoryPosts(category);
   };
 
   useEffect(() => handleCategory(null, 0), []);
@@ -43,7 +44,9 @@ function HomePage() {
   }, [isMobile, value]);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", minHeight: "100vh" }}>
+    <div
+      style={{ display: "flex", justifyContent: "center", minHeight: "100vh" }}
+    >
       <Grid
         container
         xs={12}
@@ -61,10 +64,10 @@ function HomePage() {
         </Grid>
         <Divider />
         <Grid className={classes.root} item>
-          <TopThreePosts threeMostPopularPosts={threeMostPopularPosts} />
+          <TopPosts topPosts={selectedCategory.slice(0,3)} />
         </Grid>
         <Grid className={classes.root} item>
-          <PostCardsList postCards={category} />
+          <PostCardsList postCards={selectedCategory.slice(3,)} />
         </Grid>
       </Grid>
     </div>

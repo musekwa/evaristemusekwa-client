@@ -41,9 +41,9 @@ function PostCard({ post }) {
               >
                 <Typography
                   gutterBottom
-                  variant="h5"
+                  variant="h6"
                   style={{
-                    color: "#0d5b49",
+                    color: "#444",
                     fontWeight: "bolder",
                   }}
                   className="title"

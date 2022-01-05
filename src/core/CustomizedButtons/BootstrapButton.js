@@ -6,7 +6,7 @@ const BootstrapButton = withStyles({
     boxShadow: "none",
     textTransform: "none",
     fontSize: 20,
-    color: "#0d5b49",
+    color: "#444",
     padding: "6px 12px",
     lineHeight: 1.5,
     fontFamily: [
@@ -23,14 +23,14 @@ const BootstrapButton = withStyles({
     ].join(","),
     "&:hover": {
       //   backgroundColor: "#C4C4C4",
-      borderColor: "#0d5b49",
-      color: "#0d5b49",
+      // borderColor: "#444",
+      color: "#444",
       boxShadow: "none",
     },
     "&:active": {
       boxShadow: "none",
       //   backgroundColor: "#C4C4C4",
-      borderColor: "#0d5b49",
+      // borderColor: "#444",
     },
     "&:focus": {
       //     boxShadow: "0 0 0 0.2rem rgba(30, 130, 76, 1)",

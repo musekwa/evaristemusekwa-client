@@ -2,6 +2,12 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const styles = makeStyles((theme) => ({
   root: {
+    display: "flex",
+    justifyContent: "center",
+    minHeight: "100vh",
+  },
+
+  homePostCard: {
     width: "45%",
     color: "#0d5b49",
     [theme.breakpoints.down("md")]: {
@@ -82,10 +88,7 @@ const styles = makeStyles((theme) => ({
     },
   },
 
-  chipItem: {
-  
-
-  },
+  chipItem: {},
 }));
 
 export default styles;

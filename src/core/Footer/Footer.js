@@ -17,26 +17,22 @@ function Footer() {
   return (
     <footer className={classes.root}>
       <Container maxWidth="lg">
-        <Grid container spacing={2} className={classes.footer}>
+        <Grid container spacing={2}>
           <Grid item xs={12} sm={12} md={8}>
             <Grid
               container
               spacing={2}
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+              className={classes.footerInternalinksContainer}
             >
               <Grid item>
-                <Link className={classes.internalLinks} to="/">
+                <Link className={classes.footerInternalLinks} to="/">
                   <Typography variant="body1" align="center">
                     Home
                   </Typography>
                 </Link>
               </Grid>
               <Grid item>
-                <Link className={classes.internalLinks} to="/all-posts">
+                <Link className={classes.footerInternalLinks} to="/all-posts">
                   <Typography
                     variant="body1"
                     align="center"
@@ -47,25 +43,21 @@ function Footer() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link className={classes.internalLinks} to="/archives">
-                  <Typography
-                    variant="body1"
-                    align="center"
-                 //   className={classes.optional}
-                  >
+                <Link className={classes.footerInternalLinks} to="/archives">
+                  <Typography variant="body1" align="center">
                     Archives
                   </Typography>
                 </Link>
               </Grid>
               <Grid item>
-                <Link className={classes.internalLinks} to="/portfolio">
+                <Link className={classes.footerInternalLinks} to="/portfolio">
                   <Typography variant="body1" align="center">
                     Portfolios
                   </Typography>
                 </Link>
               </Grid>
               <Grid item>
-                <Link className={classes.internalLinks} to="/newsletter">
+                <Link className={classes.footerInternalLinks} to="/newsletter">
                   <Typography
                     variant="body1"
                     align="center"
@@ -76,7 +68,7 @@ function Footer() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link className={classes.internalLinks} to="/search">
+                <Link className={classes.footerInternalLinks} to="/search">
                   <Typography variant="body1" align="center">
                     Search
                   </Typography>
@@ -91,15 +83,11 @@ function Footer() {
             <Grid
               container
               spacing={3}
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "15px",
-              }}
+              className={classes.footerExternalLinksContainer}
             >
               <Grid item>
                 <Button
-                  className={classes.externalLinksButton}
+                  className={classes.footerExternalLinksButton}
                   variant="text"
                   onClick={() => openNewWindowTab("https://github.com/musekwa")}
                 >
@@ -109,7 +97,7 @@ function Footer() {
               <Grid item>
                 <Button
                   variant="text"
-                  className={classes.externalLinksButton}
+                  className={classes.footerExternalLinksButton}
                   onClick={() =>
                     openNewWindowTab("https://twitter.com/MusekwaEvariste")
                   }
@@ -120,7 +108,7 @@ function Footer() {
               <Grid item>
                 <Button
                   variant="text"
-                  className={classes.externalLinksButton}
+                  className={classes.footerExternalLinksButton}
                   onClick={() =>
                     openNewWindowTab("https://www.linkedin.com/in/musekwa/")
                   }

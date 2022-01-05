@@ -6,27 +6,36 @@ const styles = makeStyles((theme) => ({
     color: "#444",
     backgroundColor: "#eeeeee",
     height: "auto",
-   
+
     marginBottom: -10,
     position: "relative",
     bottom: -10,
     paddingBottom: 20,
     paddingTop: 40,
-    
   },
-  externalLinksButton: {
-    color: 'inherit',
+  footerInternalLinksContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  footerExternalLinksContainer: {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "15px",
+  },
+  footerExternalLinksButton: {
+    color: "inherit",
     margin: 0,
     padding: 0,
   },
-  internalLinks: {
-    textDecoration: 'none',
-    color: 'inherit',
+  footerInternalLinks: {
+    textDecoration: "none",
+    color: "inherit",
     "&:hover": {
       color: "#000",
-    }
+    },
   },
-  footer: {},
+
   optional: {
     color: "inherit",
     [theme.breakpoints.down("md")]: {

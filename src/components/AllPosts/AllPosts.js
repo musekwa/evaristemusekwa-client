@@ -149,7 +149,7 @@ function AllPosts() {
                     >
                       <div className={classes.dates}>
                         {" "}
-                        <Typography variant="h6" align="left">
+                        <Typography variant="body2" color="textSecondary" align="left">
                           {new Date(post.createdAt).toDateString().slice(4, 7) +
                             " " +
                             new Date(post.createdAt)

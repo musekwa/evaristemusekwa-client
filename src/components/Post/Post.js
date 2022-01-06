@@ -22,7 +22,7 @@ function Post() {
       <div className={classes.root}>
         <Grid container>
           <Grid className={classes.leftSide} item>
-            <h2>Left side bar</h2>
+            <h2></h2>
           </Grid>
           <Grid className={classes.main} item>
             <Box square>
@@ -30,12 +30,14 @@ function Post() {
               <Typography variant="h4" className={classes.postTitle}>{post.title}</Typography>
               <main>
                   <Typography variant='body2' color='textSecondary'>{post.description}</Typography>
-                    
+                   <Typography variant="body2">
+                     {post.content}
+                     </Typography> 
               </main>
             </Box>
           </Grid>
           <Grid className={classes.rightSide} item container>
-            <h2>Right side bar</h2>
+            <h2></h2>
           </Grid>
         </Grid>
       </div>

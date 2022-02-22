@@ -10,7 +10,6 @@ const styles = makeStyles((theme) => ({
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
     maxWidth: "50%",
-    color: "#444",
     // backgroundColor: "#efffff",
 
     [theme.breakpoints.down("md")]: {

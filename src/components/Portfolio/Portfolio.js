@@ -173,7 +173,7 @@ function Portfolio() {
 
   return (
     <div style={{ minHeight: "80vh" }}>
-      <h1 style={{ textAlign: "center" }}>Portfolio</h1>
+      <Typography align="center" variant="h4">Portfolio</Typography>
       <Grid
         container
         spacing={2}
@@ -201,7 +201,7 @@ function Portfolio() {
                 aria-controls="panel1a-content"
                 id="pane1a-header"
               >
-                <Typography variant="h5">
+                <Typography variant="h6" >
                   {category.category}
                   {": "}
                   <span>{` ${category.projects.length} Projects`}</span>

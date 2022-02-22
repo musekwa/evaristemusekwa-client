@@ -70,9 +70,6 @@ function AllPosts() {
   let month = 0;
   const classes = styles();
 
-  // useEffect(()=>{
-
-  // })
 
   useEffect(() => {
     let mergedPosts = allPosts  //mergePostsCategories(allPosts);
@@ -113,7 +110,7 @@ function AllPosts() {
         </Grid>
         {/* main pane */}
         <Grid md={6} direction="column" spacing={3}>
-          <Typography variant="h5" align="center">
+          <Typography variant="h4" align="center">
             All Posts
             {tag ? (
               <Typography color="textSecondary" style={{ padding: "5px" }}>

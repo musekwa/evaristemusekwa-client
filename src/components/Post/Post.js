@@ -22,7 +22,7 @@ function Post() {
       <div className={classes.root}>
         <Grid container>
           <Grid className={classes.leftSide} item>
-            <h2></h2>
+            {/* <h2>Left-side pane</h2> */}
           </Grid>
           <Grid className={classes.main} item>
             <Box square>
@@ -37,7 +37,7 @@ function Post() {
             </Box>
           </Grid>
           <Grid className={classes.rightSide} item container>
-            <h2></h2>
+            {/* <h2>Right-side pane</h2> */}
           </Grid>
         </Grid>
       </div>

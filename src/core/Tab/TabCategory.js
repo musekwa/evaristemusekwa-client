@@ -11,7 +11,8 @@ function TabCategory({ handleCategory, isMobile, value }) {
         <Tabs
           value={value}
           onChange={handleCategory}
-          variant={!isMobile ? "standard" : "fullWidth"}
+          // variant={!isMobile ? "standard" : "fullWidth"}
+          variant="fullWdith"
           classes={{
             root: classes.tabsRoot,
             indicator: classes.tabsIndicator,

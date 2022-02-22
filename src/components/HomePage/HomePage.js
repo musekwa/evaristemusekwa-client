@@ -26,7 +26,15 @@ function HomePage() {
   const handleCategory = (event, value) => {
     setValue(value);
     const category =
-      value === 0 ? "javascript" : value === 1 ? "algorithms" : "uncategorized";
+      value === 0
+        ? "javascript"
+        : value === 1
+        ? "algorithms"
+        : value === 2
+        ? "uncategorized"
+        : value === 3
+        ? "data analysis"
+        : "databases";
     setCategory(category);
 
     // You need to find parameters that determine
@@ -43,6 +51,7 @@ function HomePage() {
 
   return (
     <div className={classes.root}>
+
       <Grid
         container
         xs={12}

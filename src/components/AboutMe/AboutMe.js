@@ -10,7 +10,7 @@ function AboutMe() {
     <Container className={classes.containerRoot} id="aboutme-container">
       <Grid container spacing={2} direction="row" justifyContent="center">
         <Paper className={classes.paperRoot}>
-          <Typography align="center" variant="h4" color="inherit" component="h4">
+          <Typography align="center" variant="h4" component="h4">
             About Me
           </Typography>
           <Typography component="p" align="justify">
